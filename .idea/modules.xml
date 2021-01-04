@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/2DGraphicCore/2DGraphicCore.iml" filepath="$PROJECT_DIR$/2DGraphicCore/2DGraphicCore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EventHandler/EventHandler.iml" filepath="$PROJECT_DIR$/EventHandler/EventHandler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SatelliteEtBaliseWithDeplacementAsDecorator2/SatelliteEtBaliseWithDeplacementAsDecorator2.iml" filepath="$PROJECT_DIR$/SatelliteEtBaliseWithDeplacementAsDecorator2/SatelliteEtBaliseWithDeplacementAsDecorator2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cours-satelites-projet.iml" filepath="$PROJECT_DIR$/.idea/cours-satelites-projet.iml" />
+    </modules>
+  </component>
+</project>
