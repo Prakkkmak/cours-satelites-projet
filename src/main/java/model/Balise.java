@@ -6,7 +6,7 @@ public class Balise extends ElementMobile implements SatelitteMoveListener{
 		super(memorySize);
 	}
 	
-	public int profondeur() { 
+	public int getProfondeur() {
 		return this.getPosition().y; 
 	}
 	
@@ -17,7 +17,7 @@ public class Balise extends ElementMobile implements SatelitteMoveListener{
 	public void tick() {
 		this.readSensors();
 		if (this.memoryFull()) {
-			Deplacement redescendre = new Redescendre(this.deplacement(), this.profondeur());
+			Deplacement redescendre = new Redescendre(this.deplacement(), this.getProfondeur());
 			Deplacement deplSynchro = new DeplSynchronisation(redescendre);
 			Deplacement nextDepl = new MonteSurfacePourSynchro(deplSynchro);
 			this.setDeplacement(nextDepl);
