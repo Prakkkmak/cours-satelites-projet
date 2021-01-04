@@ -1,20 +1,22 @@
-package model;
+package model.movement;
+
+import model.MobileElement;
 
 import java.awt.Point;
 
-public class DeplHorizontal extends DeplacementBalise {
+public class HorizontalMovement extends BeaconMovement {
 	Integer start;
 	Integer end;
 	Boolean fromStartToEnd = true;
 
-	public DeplHorizontal(Integer start, Integer end) {
+	public HorizontalMovement(Integer start, Integer end) {
 		super (null);
 		this.start = start;
 		this.end = end;
 	}
 	
 	@Override
-	public void bouge(ElementMobile target) {
+	public void move(MobileElement target) {
 		Point p = target.getPosition();
 		int x = p.x;
 		if (fromStartToEnd) {

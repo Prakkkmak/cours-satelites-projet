@@ -4,39 +4,55 @@ import java.awt.Point;
 
 import eventHandler.AbstractEvent;
 import eventHandler.EventHandler;
+import model.movement.Movement;
 
-public class ElementMobile {
-	Deplacement depl;
-	Point position;
-	EventHandler eventHandler;
-	int memorySize;
-	int dataSize;
-	Manager manager;
+public class MobileElement {
+	protected Movement movement;
+	protected Point position;
+	protected EventHandler eventHandler;
+	protected int memorySize;
+	protected int dataSize;
+	protected Manager manager;
 
-	public ElementMobile(int memorySize) {
+	public MobileElement(int memorySize) {
 		eventHandler = new EventHandler();
 		this.memorySize = memorySize;
 		this.dataSize = 0;
 		this.position = new Point(0, 0);
 	}
 
-	public int dataSize() {
-		return this.dataSize;
+	public Point getPosition() {
+		return position;
 	}
 
-	public int memorySize() {
-		return this.memorySize;
+	public void setPosition(Point position) {
+		this.position = position;
 	}
 
-	public Deplacement deplacement() {
-		return depl;
+	public Manager getManager() {
+		return manager;
 	}
-	
+
 	public void setManager(Manager manager) {
 		this.manager = manager;
-		
 	}
-	
+
+	public Movement getMovement() {
+		return movement;
+	}
+
+	public void setMovement(Movement movement) {
+		this.movement = movement;
+	}
+
+	public int getDataSize() {
+		return dataSize;
+	}
+
+	public void setDataSize(int dataSize) {
+		this.dataSize = dataSize;
+	}
+
 	protected void resetData() {
 		this.dataSize = 0;
 	}
@@ -60,30 +76,11 @@ public class ElementMobile {
 	}
 
 	public void tick() {
-		this.bouge();
+		this.move();
 	}
 
-	public void bouge() {
-		this.depl.bouge(this);
+	public void move() {
+		this.movement.move(this);
 		this.send(new PositionChanged(this));
 	}
-
-	public void setPosition(Point position) {
-		if (this.position.equals(position))
-			return;
-		this.position = position;
-	}
-
-	public Point getPosition() {
-		return position;
-	}
-
-	public void setDeplacement(Deplacement depl) {
-		this.depl = depl;
-	}
-
-	public Manager getManager() {
-		return manager;
-	}
-
 }

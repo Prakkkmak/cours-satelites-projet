@@ -1,20 +1,22 @@
-package model;
+package model.movement;
+
+import model.MobileElement;
 
 import java.awt.Point;
 
-public class DeplVertical extends DeplacementBalise  {
+public class VerticalMovement extends BeaconMovement {
 	Integer min;
 	Integer max;
 	Boolean monte = false;
 
-	public DeplVertical(Integer min, Integer max) {
+	public VerticalMovement(Integer min, Integer max) {
 		super (null);
 		this.min = min;
 		this.max = max;
 	}
 	
 	@Override
-	public void bouge(ElementMobile target) {
+	public void move(MobileElement target) {
 		Point p = target.getPosition();
 		int y = p.y;
 		if (monte) {

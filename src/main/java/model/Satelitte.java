@@ -1,13 +1,13 @@
 package model;
 
-public class Satelitte extends ElementMobile {
+public class Satelitte extends MobileElement {
 			
 	public Satelitte(int memorySize) {
 		super(memorySize);
 	}
 	
-	public void bouge () {
-		super.bouge();
+	public void move() {
+		super.move();
 		this.send(new SatelitteMoved(this));		
 	}
 }

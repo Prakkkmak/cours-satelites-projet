@@ -1,6 +1,13 @@
-package model;
+package model.movement;
 
-public class DeplSynchronisation extends DeplacementBalise {
+import model.Beacon;
+import model.Satelitte;
+import model.SatelitteMoved;
+import model.SynchroEvent;
+import model.movement.Movement;
+import model.movement.BeaconMovement;
+
+public class SyncMovement extends BeaconMovement {
 	private int synchroTime;
 	private Satelitte synchro;
 	
@@ -8,14 +15,14 @@ public class DeplSynchronisation extends DeplacementBalise {
 		return this.synchro != null;
 	}
 	
-	public DeplSynchronisation(Deplacement next) {
+	public SyncMovement(Movement next) {
 		super(next);
 		this.synchroTime = 10;
 		this.synchro = null;
 	}
 	
 	@Override
-	public void whenSatelitteMoved(SatelitteMoved arg, Balise target) {
+	public void whenSatelitteMoved(SatelitteMoved arg, Beacon target) {
 		if (this.synchro != null) return;
 		Satelitte sat = (Satelitte) arg.getSource();
 		int satX = sat.getPosition().x;
@@ -28,7 +35,7 @@ public class DeplSynchronisation extends DeplacementBalise {
 	}
 
 	@Override
-	public void bouge(Balise target) {
+	public void move(Beacon target) {
 		if (this.synchro == null) return;
 		this.synchroTime--;
 		if (synchroTime <= 0) {
@@ -37,8 +44,8 @@ public class DeplSynchronisation extends DeplacementBalise {
 			this.synchroTime = 10;
 			target.send(new SynchroEvent(this));
 			sat.send(new SynchroEvent(this));
-			target.getManager().baliseSynchroDone(target);
-			target.setDeplacement(next);
+			target.getManager().baliseSyncDone(target);
+			target.setMovement(next);
 		}		
 	}
 }

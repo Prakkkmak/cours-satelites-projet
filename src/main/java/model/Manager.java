@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Manager {
 	ArrayList<Satelitte> sats = new ArrayList<Satelitte>();
-	ArrayList<Balise> bals = new ArrayList<Balise>();
-	public void addBalise(Balise bal) {
+	ArrayList<Beacon> bals = new ArrayList<Beacon>();
+	public void addBeacon(Beacon bal) {
 		bals.add(bal);
 		bal.setManager(this);
 	}
@@ -13,8 +13,9 @@ public class Manager {
 		this.sats.add(sat);
 		sat.setManager(this);
 	}
+
 	public void tick() {
-		for (Balise b : this.bals) {
+		for (Beacon b : this.bals) {
 			b.tick();
 		}
 		for (Satelitte s : this.sats) {
@@ -22,12 +23,12 @@ public class Manager {
 		}
 	}
 	
-	public void baliseReadyForSynchro(Balise b) {
+	public void beaconReadyForSync(Beacon b) {
 		for (Satelitte s : this.sats) {			
 			s.registerListener(SatelitteMoved.class, b);
 		}
 	}
-	public void baliseSynchroDone(Balise b) {
+	public void baliseSyncDone(Beacon b) {
 		for (Satelitte s : this.sats) {			
 			s.unregisterListener(SatelitteMoved.class, b);
 		}
