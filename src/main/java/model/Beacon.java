@@ -10,7 +10,7 @@ import model.movement.beacon.decorator.SyncMovement;
  * La valise est un élément mobile qui as pour but de collecter des données et de les envoyer à un satellite.
  */
 public class Beacon extends MobileElement implements SatelitteMoveListener{
-	
+
 	public Beacon(int memorySize) {
 		super(memorySize);
 	}
@@ -44,8 +44,8 @@ public class Beacon extends MobileElement implements SatelitteMoveListener{
 
 	@Override
 	public void whenSatelitteMoved(SatelitteMoved arg) {
-		BeaconMovement dp = (BeaconMovement) this.movement;
-		dp.whenSatelitteMoved(arg, this);
+		BeaconSynchronizer bs = new BeaconSynchronizer(this);
+		bs.sync(arg);
 	}
 
 

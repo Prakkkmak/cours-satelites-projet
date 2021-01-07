@@ -9,6 +9,5 @@ public abstract class BeaconMovement extends Movement {
 
 	abstract public void move(MobileElement target) ;
 
-	public void whenSatelitteMoved(SatelitteMoved arg, Beacon target) { }
 
 }
