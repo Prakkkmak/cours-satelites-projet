@@ -4,24 +4,27 @@ import model.MobileElement;
 
 import java.awt.Point;
 
+/**
+ * Mouvement du satellite. Le mouvement permet au satellite de se déplacer de gauche à droite en boucle.
+ */
 public class SatelliteMovement extends Movement {
-	Integer start;
-	Integer end;
-	int speed;
+	private final Integer start;
+	private final Integer end;
+	private final int speed;
 
 	public SatelliteMovement(Integer start, Integer end, int speed) {
 		this.start = start;
 		this.end = end;
 		this.speed = speed;
 	}
-	
+
 	@Override
 	public void move(MobileElement target) {
-		Point p = target.getPosition();
-		int x = p.x;
+		Point startPoint = target.getPosition();
+		int x = startPoint.x;
 		x += speed;
 		if (x > end) x = start;
-		target.setPosition(new Point(x, p.y));
+		target.setPosition(new Point(x, startPoint.y));
 	}
 
 }
