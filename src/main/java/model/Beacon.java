@@ -21,17 +21,20 @@ public class Beacon extends MobileElement implements SatelitteMoveListener{
 	
 	public void tick() {
 		this.readSensors();
-		//TODO Sortir ce bloc dans une fonction exterieure
 		if (this.memoryFull()) {
 			//TODO State pattern
-			Movement backMovement = new BeaconBackMovement(this.movement, this.getDepth());
-			Movement syncMovement = new SyncMovement(backMovement);
-			Movement goToSurfaceMovement = new GoToSurfaceMovement(syncMovement);
-			this.setMovement(goToSurfaceMovement);
+			setNextMovements();
 			//TODO Reset data au moment d'envoi
-			this.resetData();
 		} 
 		super.tick();
+	}
+
+	public void setNextMovements(){
+		Movement backMovement = new BeaconBackMovement(this.movement, this.getDepth());
+		Movement syncMovement = new SyncMovement(backMovement);
+		Movement goToSurfaceMovement = new GoToSurfaceMovement(syncMovement);
+		this.setMovement(goToSurfaceMovement);
+		this.resetData();
 	}
 
 
