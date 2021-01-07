@@ -1,10 +1,10 @@
-package model.movement;
+package model.movement.beacon.decorator;
 
 import model.*;
 import model.movement.Movement;
-import model.movement.BeaconMovement;
 
-public class SyncMovement extends BeaconMovement {
+public class SyncMovement extends BeaconMovementDecorator {
+
 	private static final int SYNC_RANGE = 10;
 	private int synchroTime;
 	private Satelitte synchro;
@@ -18,7 +18,8 @@ public class SyncMovement extends BeaconMovement {
 		this.synchroTime = 10;
 		this.synchro = null;
 	}
-	
+
+	//TODO Pourquoi whenSatellittteMoved ici ?
 	@Override
 	public void whenSatelitteMoved(SatelitteMoved arg, Beacon target) {
 		if (this.synchro != null) return;

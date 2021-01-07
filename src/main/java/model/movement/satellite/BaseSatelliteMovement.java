@@ -1,4 +1,4 @@
-package model.movement;
+package model.movement.satellite;
 
 import model.MobileElement;
 

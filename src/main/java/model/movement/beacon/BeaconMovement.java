@@ -1,16 +1,11 @@
-package model.movement;
+package model.movement.beacon;
 
 import model.Beacon;
 import model.MobileElement;
 import model.SatelitteMoved;
+import model.movement.Movement;
 
 public abstract class BeaconMovement extends Movement {
-
-	protected Movement next;
-	
-	public BeaconMovement(Movement next) {
-		this.next = next;
-	}
 
 	abstract public void move(MobileElement target) ;
 

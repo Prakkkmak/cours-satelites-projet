@@ -1,15 +1,17 @@
-package model.movement;
+package model.movement.beacon.decorator;
 
 import model.MobileElement;
+import model.movement.Movement;
 
 import java.awt.Point;
 
 /**
  * Mouvement de retour à la base
  */
-public class BackMovement extends BeaconMovement {
+public class BackMovement extends BeaconMovementDecorator {
 
-	private int targetDepth;
+	private static final int SPEED = 3;
+	private final int targetDepth;
 	
 	public BackMovement(Movement next, int targetDepth) {
 		super(next);
@@ -18,22 +20,14 @@ public class BackMovement extends BeaconMovement {
 	
 	@Override
 	public void move(MobileElement target) {
-		Point p = target.getPosition();
-		int y = p.y;
+		Point targetDepth = target.getPosition();
+		int y = targetDepth.y;
 		if (y < this.targetDepth) {
-			y += 3;
+			y += SPEED;
 			if (y > this.targetDepth) y = this.targetDepth;
-			target.setPosition(new Point(p.x, y));
+			target.setPosition(new Point(targetDepth.x, y));
 		}  else {
 			target.setMovement(next);
 		}
-	}
-
-	public int getTargetDepth() {
-		return targetDepth;
-	}
-
-	public void setTargetDepth(int targetDepth) {
-		this.targetDepth = targetDepth;
 	}
 }

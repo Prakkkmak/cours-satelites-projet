@@ -1,6 +1,7 @@
-package model.movement;
+package model.movement.beacon;
 
 import model.MobileElement;
+import model.movement.beacon.BeaconMovement;
 
 import java.awt.Point;
 
@@ -10,7 +11,6 @@ public class VerticalMovement extends BeaconMovement {
 	Boolean monte = false;
 
 	public VerticalMovement(Integer min, Integer max) {
-		super (null);
 		this.min = min;
 		this.max = max;
 	}

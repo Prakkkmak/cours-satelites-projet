@@ -1,4 +1,4 @@
-package model.movement;
+package model.movement.beacon;
 
 import model.MobileElement;
 
@@ -10,7 +10,6 @@ public class HorizontalMovement extends BeaconMovement {
 	Boolean fromStartToEnd = true;
 
 	public HorizontalMovement(Integer start, Integer end) {
-		super (null);
 		this.start = start;
 		this.end = end;
 	}

@@ -1,11 +1,12 @@
-package model.movement;
+package model.movement.beacon.decorator;
 
 import model.Beacon;
 import model.MobileElement;
+import model.movement.Movement;
 
 import java.awt.Point;
 
-public class GoToSurfaceMovement extends BeaconMovement {
+public class GoToSurfaceMovement extends BeaconMovementDecorator {
 	
 	public GoToSurfaceMovement(Movement next) {
 		super (next);
