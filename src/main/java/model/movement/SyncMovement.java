@@ -5,6 +5,7 @@ import model.movement.Movement;
 import model.movement.BeaconMovement;
 
 public class SyncMovement extends BeaconMovement {
+	private static final int SYNC_RANGE = 10;
 	private int synchroTime;
 	private Satelitte synchro;
 	
@@ -24,7 +25,7 @@ public class SyncMovement extends BeaconMovement {
 		Satelitte sat = (Satelitte) arg.getSource();
 		int satX = sat.getPosition().x;
 		int tarX = target.getPosition().x;
-		if (satX > tarX - 10 && satX < tarX + 10) {
+		if (satX > tarX - SYNC_RANGE && satX < tarX + SYNC_RANGE) {
 			this.synchro = sat;
 			target.send(new SynchroEvent(this));
 			this.synchro.send(new SynchroEvent(this));
@@ -33,6 +34,10 @@ public class SyncMovement extends BeaconMovement {
 	//TODO anti pattern le move devrait déplacer seulement un Satellite
 	@Override
 	public void move(MobileElement target) {
+			sync(target);
+	}
+	//TODO virer la sync d'ici, rien à faire dans un movement
+	public void sync(MobileElement target){
 		if (this.synchro == null) return;
 		this.synchroTime--;
 		if (synchroTime <= 0) {
@@ -41,8 +46,8 @@ public class SyncMovement extends BeaconMovement {
 			this.synchroTime = 10;
 			target.send(new SynchroEvent(this));
 			sat.send(new SynchroEvent(this));
-			//target.getManager().baliseSyncDone(target);
+			target.getManager().baliseSyncDone((Beacon)target); // On sais que la target est un beacon ici
 			target.setMovement(next);
-		}		
+		}
 	}
 }
