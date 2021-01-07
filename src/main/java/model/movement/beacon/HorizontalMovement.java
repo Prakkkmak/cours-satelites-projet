@@ -5,9 +5,10 @@ import model.MobileElement;
 import java.awt.Point;
 
 public class HorizontalMovement extends BeaconMovement {
-	Integer start;
-	Integer end;
-	Boolean fromStartToEnd = true;
+	private static final int SPEED = 1;
+	private final Integer start;
+	private final Integer end;
+	private Boolean fromStartToEnd = true;
 
 	public HorizontalMovement(Integer start, Integer end) {
 		this.start = start;
@@ -19,11 +20,17 @@ public class HorizontalMovement extends BeaconMovement {
 		Point p = target.getPosition();
 		int x = p.x;
 		if (fromStartToEnd) {
-			x += 6;
-			if (x > end) fromStartToEnd = false;
+			x += SPEED;
+			if (x >= end) {
+				x = end;
+				fromStartToEnd = false;
+			}
 		} else {
-			x -= 2;
-			if (x < start) fromStartToEnd = true;
+			x -= SPEED;
+			if (x <= start) {
+				x = start;
+				fromStartToEnd = true;
+			}
 		}
 		target.setPosition(new Point(x, p.y));
 	}

@@ -4,7 +4,7 @@ import model.MobileElement;
 import model.movement.Movement;
 import model.movement.beacon.BeaconMovement;
 
-public class BeaconMovementDecorator extends BeaconMovement {
+public abstract class BeaconMovementDecorator extends BeaconMovement {
 
     protected Movement next;
 
@@ -13,8 +13,5 @@ public class BeaconMovementDecorator extends BeaconMovement {
     }
 
     @Override
-    public void move(MobileElement target) {
-
-    }
-
+    public abstract void move(MobileElement target);
 }
