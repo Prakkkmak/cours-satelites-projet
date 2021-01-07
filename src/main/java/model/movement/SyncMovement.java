@@ -1,9 +1,6 @@
 package model.movement;
 
-import model.Beacon;
-import model.Satelitte;
-import model.SatelitteMoved;
-import model.SynchroEvent;
+import model.*;
 import model.movement.Movement;
 import model.movement.BeaconMovement;
 
@@ -33,9 +30,9 @@ public class SyncMovement extends BeaconMovement {
 			this.synchro.send(new SynchroEvent(this));
 		}
 	}
-
+	//TODO anti pattern le move devrait déplacer seulement un Satellite
 	@Override
-	public void move(Beacon target) {
+	public void move(MobileElement target) {
 		if (this.synchro == null) return;
 		this.synchroTime--;
 		if (synchroTime <= 0) {
@@ -44,7 +41,7 @@ public class SyncMovement extends BeaconMovement {
 			this.synchroTime = 10;
 			target.send(new SynchroEvent(this));
 			sat.send(new SynchroEvent(this));
-			target.getManager().baliseSyncDone(target);
+			//target.getManager().baliseSyncDone(target);
 			target.setMovement(next);
 		}		
 	}

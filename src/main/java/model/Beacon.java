@@ -30,7 +30,7 @@ public class Beacon extends MobileElement implements SatelitteMoveListener{
 	}
 
 	public void setNextMovements(){
-		Movement backMovement = new BeaconBackMovement(this.movement, this.getDepth());
+		Movement backMovement = new BackMovement(this.movement, this.getDepth());
 		Movement syncMovement = new SyncMovement(backMovement);
 		Movement goToSurfaceMovement = new GoToSurfaceMovement(syncMovement);
 		this.setMovement(goToSurfaceMovement);

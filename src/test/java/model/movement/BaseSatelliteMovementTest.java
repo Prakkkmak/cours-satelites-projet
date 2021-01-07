@@ -7,9 +7,9 @@ import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SatelliteMovementTest {
+class BaseSatelliteMovementTest {
 
-    SatelliteMovement movement = new SatelliteMovement(0, 10, 1);
+    BaseSatelliteMovement movement = new BaseSatelliteMovement(0, 10, 1);
 
     @Test
     void shouldMoveMobileElement() {

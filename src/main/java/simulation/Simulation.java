@@ -9,7 +9,7 @@ import graphicLayer.GRect;
 import graphicLayer.GSpace;
 import model.Beacon;
 import model.movement.HorizontalMovement;
-import model.movement.SatelliteMovement;
+import model.movement.BaseSatelliteMovement;
 import model.movement.VerticalMovement;
 import model.movement.Movement;
 import model.Manager;
@@ -44,7 +44,7 @@ public class Simulation {
 	public void addSatelitte(GBounded sky, int memorySize, Point startPos, int vitesse) {		
 		Satelitte sat = new Satelitte(memorySize);
 		sat.setPosition(startPos);
-		sat.setMovement(new SatelliteMovement(-10,1000, vitesse));
+		sat.setMovement(new BaseSatelliteMovement(-10,1000, vitesse));
 		manager.addSatellite(sat);
 		GrSatelitte grSat = new GrSatelitte();
 		grSat.setModel(sat);
