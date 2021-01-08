@@ -1,7 +1,6 @@
 package model;
 
 import eventHandler.AbstractEvent;
-import model.movement.beacon.decorator.SyncMovement;
 
 public class SynchroEvent extends AbstractEvent {
 	private static final long serialVersionUID = 480096146703824993L;
@@ -12,8 +11,8 @@ public class SynchroEvent extends AbstractEvent {
 
 	public void runOn(Object target) {
 		SynchroEventListener listener = (SynchroEventListener) target;
-		SyncMovement depl = (SyncMovement) this.getSource();
-		if (depl.synchroStarted())
+		BeaconSynchronizer bs = (BeaconSynchronizer) this.getSource();
+		if (bs.synchroStarted())
 			listener.whenStartSynchro(this);
 		else 
 			listener.whenStopSynchro(this);

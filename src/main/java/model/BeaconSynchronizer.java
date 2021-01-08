@@ -1,12 +1,21 @@
 package model;
 
 public class BeaconSynchronizer {
+
     private static final int SYNC_RANGE = 10;
-    private Beacon beacon;
+
+    private final Beacon beacon;
     private Satelitte synchro;
+
+
     public BeaconSynchronizer(Beacon beacon){
         this.beacon = beacon;
     }
+
+    public Boolean synchroStarted() {
+        return this.synchro != null;
+    }
+
     public void sync(SatelitteMoved arg){
         if (this.synchro != null) return;
         Satelitte sat = (Satelitte) arg.getSource();
@@ -16,6 +25,7 @@ public class BeaconSynchronizer {
             this.synchro = sat;
             beacon.send(new SynchroEvent(this));
             this.synchro.send(new SynchroEvent(this));
+            beacon.resetData();
         }
     }
 }
