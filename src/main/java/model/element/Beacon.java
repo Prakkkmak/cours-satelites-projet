@@ -22,10 +22,6 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 		beaconSynchronizer = new BeaconSynchronizer(this);
 	}
 
-	public BeaconSynchronizer getBeaconSynchronizer() {
-		return beaconSynchronizer;
-	}
-
 	public int getDepth() {
 		return this.getPosition().y; 
 	}
