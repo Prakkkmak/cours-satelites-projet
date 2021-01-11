@@ -1,40 +1,37 @@
 package model;
 
 import model.element.Beacon;
+import model.element.MobileElement;
 import model.element.Satelitte;
 import model.event.SatelitteMoved;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Manager {
-	ArrayList<Satelitte> sats = new ArrayList<Satelitte>();
-	ArrayList<Beacon> bals = new ArrayList<Beacon>();
-	public void addBeacon(Beacon bal) {
-		bals.add(bal);
-		bal.setManager(this);
-	}
-	public void addSatellite(Satelitte sat) {
-		this.sats.add(sat);
-		sat.setManager(this);
+
+	List<MobileElement> elements = new ArrayList<>();
+
+	public void addElement(MobileElement element){
+		elements.add(element);
 	}
 
 	public void tick() {
-		for (Beacon b : this.bals) {
-			b.tick();
-		}
-		for (Satelitte s : this.sats) {
-			s.tick();
-		}
+		for (MobileElement element : this.elements) element.tick();
 	}
 	
 	public void beaconReadyForSync(Beacon b) {
-		for (Satelitte s : this.sats) {			
-			s.registerListener(SatelitteMoved.class, b);
+		for (MobileElement element : this.elements) {
+			if(element instanceof Satelitte){
+				element.registerListener(SatelitteMoved.class, b);
+			}
 		}
 	}
-	public void baliseSyncDone(Beacon b) {
-		for (Satelitte s : this.sats) {			
-			s.unregisterListener(SatelitteMoved.class, b);
+	public void beaconSyncDone(Beacon b) {
+		for (MobileElement element : this.elements) {
+			if(element instanceof Satelitte){
+				element.unregisterListener(SatelitteMoved.class, b);
+			}
 		}
 	}
 
