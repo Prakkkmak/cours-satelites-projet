@@ -13,7 +13,7 @@ public class SynchroEvent extends AbstractEvent {
 	public void runOn(Object target) {
 		SynchroEventListener listener = (SynchroEventListener) target;
 		BeaconSynchronizer bs = (BeaconSynchronizer) this.getSource();
-		if (bs.synchroStarted())
+		if (bs.isSyncInProgress())
 			listener.whenStartSynchro(this);
 		else 
 			listener.whenStopSynchro(this);
