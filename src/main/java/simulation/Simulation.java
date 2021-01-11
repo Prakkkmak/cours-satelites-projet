@@ -33,6 +33,7 @@ public class Simulation {
 	public void addBalise(GBounded sea, int memorySize, Point startPos, Movement depl) {
 		Beacon bal = new Beacon(memorySize);
 		bal.setPosition(startPos);
+		bal.setStartDepth(startPos.y);
 		bal.setMovement(depl);
 		manager.addBeacon(bal);
 		GrBalise grbal = new GrBalise();

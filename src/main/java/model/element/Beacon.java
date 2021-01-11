@@ -5,6 +5,7 @@ import model.event.SatelitteMoveListener;
 import model.event.SatelitteMoved;
 import model.movement.*;
 import model.movement.beacon.decorator.BackMovement;
+import model.movement.beacon.decorator.BeaconMovementDecorator;
 import model.movement.beacon.decorator.GoToSurfaceMovement;
 import model.movement.beacon.decorator.SyncMovement;
 
@@ -14,12 +15,20 @@ import model.movement.beacon.decorator.SyncMovement;
 public class Beacon extends MobileElement implements SatelitteMoveListener {
 
 	private final BeaconSynchronizer beaconSynchronizer;
-	private final int startDepth;
+	private int startDepth;
 
 	public Beacon(int memorySize) {
 		super(memorySize);
 		startDepth = this.getDepth();
 		beaconSynchronizer = new BeaconSynchronizer(this);
+	}
+
+	public int getStartDepth() {
+		return startDepth;
+	}
+
+	public void setStartDepth(int startDepth) {
+		this.startDepth = startDepth;
 	}
 
 	public int getDepth() {
@@ -36,7 +45,7 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 	
 	public void tick() {
 		if(!isInSurface()) this.readSensors();
-		if (this.memoryFull()) {
+		if (this.memoryFull() && !(this.movement instanceof BeaconMovementDecorator)) {
 			setNextMovements();
 		} 
 		super.tick();
@@ -47,6 +56,7 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 		Movement syncMovement = new SyncMovement(backMovement);
 		Movement goToSurfaceMovement = new GoToSurfaceMovement(syncMovement);
 		this.setMovement(goToSurfaceMovement);
+		this.getManager().beaconReadyForSync(this);
 	}
 
 
