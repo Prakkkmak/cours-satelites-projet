@@ -1,6 +1,7 @@
 package model.movement.satellite;
 
 import model.element.MobileElement;
+import model.element.Satelitte;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -13,13 +14,13 @@ class BaseSatelliteMovementTest {
 
     @Test
     void shouldMoveMobileElement() {
-        MobileElement mobileElement = new MobileElement(10);
+        MobileElement mobileElement = new Satelitte(10);
         movement.move(mobileElement);
         assertEquals(1, mobileElement.getPosition().x);
     }
     @Test
     void shouldGoToStartAtEnd() {
-        MobileElement mobileElement = new MobileElement(10);
+        MobileElement mobileElement = new Satelitte(10);
         mobileElement.setPosition(new Point(10,0));
         movement.move(mobileElement);
         assertEquals(0, mobileElement.getPosition().x);

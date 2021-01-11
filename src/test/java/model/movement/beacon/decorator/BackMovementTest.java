@@ -1,5 +1,6 @@
 package model.movement.beacon.decorator;
 
+import model.element.Beacon;
 import model.element.MobileElement;
 import model.movement.beacon.HorizontalMovement;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +14,7 @@ class BackMovementTest {
 
     HorizontalMovement horizontalMovement = new HorizontalMovement(0,1);
     BackMovement movement = new BackMovement(horizontalMovement, 10);
-    MobileElement mobileElement = new MobileElement(10);
+    MobileElement mobileElement = new Beacon(10);
 
     @BeforeEach
     void init(){
