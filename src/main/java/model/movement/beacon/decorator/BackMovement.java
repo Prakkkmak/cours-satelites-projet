@@ -10,9 +10,8 @@ import java.awt.Point;
  */
 public class BackMovement extends BeaconMovementDecorator {
 
-	private static final int SPEED = 3;
 	private final int targetDepth;
-	
+
 	public BackMovement(Movement next, int targetDepth) {
 		super(next);
 		this.targetDepth = targetDepth;
@@ -23,7 +22,7 @@ public class BackMovement extends BeaconMovementDecorator {
 		Point targetDepth = target.getPosition();
 		int y = targetDepth.y;
 		if (y < this.targetDepth) {
-			y += SPEED;
+			y += this.speed;
 			if (y > this.targetDepth) y = this.targetDepth;
 			target.setPosition(new Point(targetDepth.x, y));
 		}  else {

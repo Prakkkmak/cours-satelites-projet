@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BaseSatelliteMovementTest {
 
-    BaseSatelliteMovement movement = new BaseSatelliteMovement(0, 10, 1);
+    BaseSatelliteMovement movement = new BaseSatelliteMovement(0, 10);
 
     @Test
     void shouldMoveMobileElement() {

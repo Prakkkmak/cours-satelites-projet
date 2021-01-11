@@ -10,12 +10,14 @@ import java.awt.Point;
 public class BaseSatelliteMovement extends SatelliteMovement {
 	private final Integer start;
 	private final Integer end;
-	private final int speed;
 
 	public BaseSatelliteMovement(Integer start, Integer end, int speed) {
+		this(start, end);
+		this.speed = speed;
+	}
+	public BaseSatelliteMovement(Integer start, Integer end) {
 		this.start = start;
 		this.end = end;
-		this.speed = speed;
 	}
 
 	@Override

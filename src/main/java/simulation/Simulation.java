@@ -41,10 +41,10 @@ public class Simulation {
 		sea.addElement(grbal);
 	}
 
-	public void addSatelitte(GBounded sky, int memorySize, Point startPos, int vitesse) {		
+	public void addSatelitte(GBounded sky, int memorySize, Point startPos, int speed) {
 		Satelitte sat = new Satelitte(memorySize);
 		sat.setPosition(startPos);
-		sat.setMovement(new BaseSatelliteMovement(-10,1000, vitesse));
+		sat.setMovement(new BaseSatelliteMovement(-10,1000, speed));
 		manager.addSatellite(sat);
 		GrSatelitte grSat = new GrSatelitte();
 		grSat.setModel(sat);

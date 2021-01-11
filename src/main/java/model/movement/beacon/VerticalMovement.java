@@ -20,10 +20,10 @@ public class VerticalMovement extends BeaconMovement {
 		Point p = target.getPosition();
 		int y = p.y;
 		if (monte) {
-			y -= 3;
+			y -= this.speed;
 			if (y < min) monte = false;
 		} else {
-			y += 3;
+			y += this.speed;
 			if (y > max) monte = true;
 		}
 		target.setPosition(new Point(p.x, y));

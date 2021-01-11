@@ -17,7 +17,7 @@ public class GoToSurfaceMovement extends BeaconMovementDecorator {
 		Point p = target.getPosition();
 		int y = p.y;
 		if (y > 0) {
-			y -= 3;
+			y -= this.speed;
 			if (y < 0) y = 0;
 			target.setPosition(new Point(p.x, y));
 		} else {
