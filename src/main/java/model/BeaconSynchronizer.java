@@ -11,7 +11,7 @@ import model.event.SynchroEvent;
  */
 public class BeaconSynchronizer {
 
-    private static final int SYNC_RANGE = 10;
+    private static final int SYNC_RANGE = 50;
 
     private final Beacon beacon;
     private Satelitte satelitteInSync;
@@ -24,18 +24,33 @@ public class BeaconSynchronizer {
         return this.satelitteInSync != null;
     }
 
+    public void startSync(Satelitte satellite){
+        this.satelitteInSync = satellite;
+        beacon.send(new SynchroEvent(this));
+        satellite.send(new SynchroEvent(this));
+    }
+
+    public void stopSync(){
+        Satelitte satellite = this.satelitteInSync;
+        this.satelitteInSync = null;
+        beacon.send(new SynchroEvent(this));
+        satellite.send(new SynchroEvent(this));
+    }
+
     public void sync(SatelitteMoved arg){
-        if (this.satelitteInSync != null) return;
-        Satelitte sat = (Satelitte) arg.getSource();
+        Satelitte sat = this.satelitteInSync == null ? (Satelitte) arg.getSource() : this.satelitteInSync ;
         int satX = sat.getPosition().x;
         int tarX = beacon.getPosition().x;
         if (satX > tarX - SYNC_RANGE && satX < tarX + SYNC_RANGE) {
-            this.satelitteInSync = sat;
-            beacon.send(new SynchroEvent(this));
-            this.satelitteInSync.send(new SynchroEvent(this));
-            beacon.resetData();
-            syncDone();
-            this.satelitteInSync = null;
+            if(this.satelitteInSync == null) startSync(sat);
+            beacon.setDataSize(beacon.getDataSize() - 1);
+            if(beacon.getDataSize() <= 0){
+                stopSync();
+                //syncDone();
+            }
+        }
+        else if(this.satelitteInSync != null){
+            stopSync();
         }
     }
 

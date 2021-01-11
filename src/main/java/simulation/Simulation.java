@@ -9,6 +9,7 @@ import graphicLayer.GRect;
 import graphicLayer.GSpace;
 import model.element.Beacon;
 import model.movement.beacon.HorizontalMovement;
+import model.movement.beacon.VerticalMovement;
 import model.movement.satellite.BaseSatelliteMovement;
 import model.movement.Movement;
 import model.Manager;
@@ -60,16 +61,16 @@ public class Simulation {
 		sea.setPosition(new Point(0, 300));
 		this.world.addElement(sky);
 		this.world.addElement(sea);
-		/*this.addSatelitte(sky, 10000, new Point(10,50), 2);
+		this.addSatelitte(sky, 10000, new Point(10,50), 2);
 		this.addSatelitte(sky, 10000, new Point(100,10), 1);
 		this.addSatelitte(sky, 10000, new Point(400,90), 3);
-		this.addSatelitte(sky, 10000, new Point(500,140), 4);*/
+		this.addSatelitte(sky, 10000, new Point(500,140), 4);
 		this.addSatelitte(sky, 10000, new Point(0,150), 1);
 		this.addBalise(sea, 100, new Point(300,200), new HorizontalMovement(50,750));
-		/*this.addBalise(sea, 400, new Point(100,100), new VerticalMovement(50, 200));
+		this.addBalise(sea, 400, new Point(100,100), new VerticalMovement(50, 200));
 		this.addBalise(sea, 200, new Point(0,160), new HorizontalMovement(0,800));
 		this.addBalise(sea, 500, new Point(200,100), new VerticalMovement(130, 270));
-		this.addBalise(sea, 150, new Point(300,100), new HorizontalMovement(200, 600));*/
+		this.addBalise(sea, 150, new Point(300,100), new HorizontalMovement(200, 600));
 		this.world.open();
 		this.mainLoop();
 	}

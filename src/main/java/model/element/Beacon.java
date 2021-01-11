@@ -41,10 +41,12 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 	}
 	
 	public void tick() {
-		if(!isInSurface()) this.readSensors();
-		if (this.memoryFull() && !(this.movement instanceof BeaconMovementDecorator)) {
+		if(!this.memoryFull()){
+			if(!isInSurface()) this.readSensors();
+		}
+		else{
 			setNextMovements();
-		} 
+		}
 		super.tick();
 	}
 
