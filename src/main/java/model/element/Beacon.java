@@ -39,7 +39,8 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 	protected void readSensors() {
 		this.setDataSize(this.getDataSize() + 1);
 	}
-	
+
+	@Override
 	public void tick() {
 		if(!this.memoryFull()){
 			if(!isInSurface()) this.readSensors();
@@ -50,7 +51,12 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 		super.tick();
 	}
 
-	public void setNextMovements(){
+	@Override
+	public void whenSatelitteMoved(SatelitteMoved arg) {
+		beaconSynchronizer.sync(arg);
+	}
+
+	private void setNextMovements(){
 		Movement backMovement = new BackMovement(this.movement, this.startDepth);
 		Movement syncMovement = new SyncMovement(backMovement);
 		Movement goToSurfaceMovement = new GoToSurfaceMovement(syncMovement);
@@ -59,10 +65,8 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 	}
 
 
-	@Override
-	public void whenSatelitteMoved(SatelitteMoved arg) {
-		beaconSynchronizer.sync(arg);
-	}
+
+
 
 
 }
