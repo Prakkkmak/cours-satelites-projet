@@ -64,8 +64,8 @@ public class Simulation {
 		this.addSatelitte(sky, 10000, new Point(100,10), 1);
 		this.addSatelitte(sky, 10000, new Point(400,90), 3);
 		this.addSatelitte(sky, 10000, new Point(500,140), 4);*/
-		this.addSatelitte(sky, 10000, new Point(600,10), 1);
-		this.addBalise(sea, 300, new Point(400,200), new HorizontalMovement(50,750));
+		this.addSatelitte(sky, 10000, new Point(0,150), 1);
+		this.addBalise(sea, 100, new Point(300,200), new HorizontalMovement(50,750));
 		/*this.addBalise(sea, 400, new Point(100,100), new VerticalMovement(50, 200));
 		this.addBalise(sea, 200, new Point(0,160), new HorizontalMovement(0,800));
 		this.addBalise(sea, 500, new Point(200,100), new VerticalMovement(130, 270));

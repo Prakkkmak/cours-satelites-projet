@@ -9,7 +9,7 @@ import model.movement.beacon.decorator.GoToSurfaceMovement;
 import model.movement.beacon.decorator.SyncMovement;
 
 /**
- * La valise est un élément mobile qui as pour but de collecter des données et de les envoyer à un satellite.
+ * La balise est un élément mobile qui as pour but de collecter des données et de les envoyer à un satellite.
  */
 public class Beacon extends MobileElement implements SatelitteMoveListener {
 
