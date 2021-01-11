@@ -46,7 +46,7 @@ public class BeaconSynchronizer {
             beacon.setDataSize(beacon.getDataSize() - 1);
             if(beacon.getDataSize() <= 0){
                 stopSync();
-                //syncDone();
+                syncDone();
             }
         }
         else if(this.satelitteInSync != null){
