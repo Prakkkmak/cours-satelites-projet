@@ -11,6 +11,11 @@ public class SyncMovement extends BeaconMovementDecorator {
 
 	@Override
 	public void move(MobileElement target) {
-		if(target.getDataSize() < 1) target.setMovement(this.next);
+		isReadyForNextMovement(target);
+	}
+
+	@Override
+	public boolean isReadyForNextMovement(MobileElement target) {
+		return target.getDataSize() < 1;
 	}
 }

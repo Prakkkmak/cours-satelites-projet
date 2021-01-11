@@ -1,6 +1,5 @@
 package model.movement.beacon.decorator;
 
-import model.Beacon;
 import model.MobileElement;
 import model.movement.Movement;
 
@@ -20,10 +19,13 @@ public class GoToSurfaceMovement extends BeaconMovementDecorator {
 			y -= this.speed;
 			if (y < 0) y = 0;
 			target.setPosition(new Point(p.x, y));
-		} else {
-			//TODO régler le probleme de cast target.getManager().beaconReadyForSync((Beacon) target);
-			target.setMovement(this.next);
 		}
+		super.move(target);
 	}
-	
+
+	@Override
+	public boolean isReadyForNextMovement(MobileElement target) {
+		//TODO régler le probleme de cast target.getManager().beaconReadyForSync((Beacon) target);
+		return target.getPosition().getY() <= 0;
+	}
 }

@@ -25,8 +25,12 @@ public class BackMovement extends BeaconMovementDecorator {
 			y += this.speed;
 			if (y > this.targetDepth) y = this.targetDepth;
 			target.setPosition(new Point(targetDepth.x, y));
-		}  else {
-			target.setMovement(next);
 		}
+		super.move(target);
+	}
+
+	@Override
+	public boolean isReadyForNextMovement(MobileElement target) {
+		return target.getPosition().getY() >= this.targetDepth;
 	}
 }
