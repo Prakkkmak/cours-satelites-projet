@@ -21,7 +21,7 @@ public class GoToSurfaceMovement extends BeaconMovementDecorator {
 			if (y < 0) y = 0;
 			target.setPosition(new Point(p.x, y));
 		} else {
-			target.getManager().beaconReadyForSync((Beacon) target);
+			//TODO régler le probleme de cast target.getManager().beaconReadyForSync((Beacon) target);
 			target.setMovement(this.next);
 		}
 	}
