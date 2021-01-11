@@ -8,11 +8,11 @@ import java.awt.Rectangle;
 import java.awt.Stroke;
 
 import graphicLayer.GRect;
-import model.MobileElement;
-import model.PositionChangeListener;
-import model.PositionChanged;
-import model.SynchroEvent;
-import model.SynchroEventListener;
+import model.element.MobileElement;
+import model.event.PositionChangeListener;
+import model.event.PositionChanged;
+import model.event.SynchroEvent;
+import model.event.SynchroEventListener;
 
 public class GrElementMobile extends GRect implements PositionChangeListener, SynchroEventListener  {
 	MobileElement model;

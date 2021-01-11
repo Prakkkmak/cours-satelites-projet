@@ -1,4 +1,4 @@
-package model;
+package model.event;
 
 import eventHandler.AbstractEvent;
 

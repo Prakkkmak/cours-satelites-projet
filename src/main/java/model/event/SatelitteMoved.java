@@ -1,6 +1,7 @@
-package model;
+package model.event;
 
 import eventHandler.AbstractEvent;
+import model.event.SatelitteMoveListener;
 
 public class SatelitteMoved extends AbstractEvent {
 	private static final long serialVersionUID = 480096146703824993L;

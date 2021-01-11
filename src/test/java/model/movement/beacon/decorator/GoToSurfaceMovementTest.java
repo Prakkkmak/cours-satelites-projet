@@ -1,8 +1,6 @@
 package model.movement.beacon.decorator;
 
-import model.MobileElement;
-import model.movement.beacon.HorizontalMovement;
-import model.movement.beacon.VerticalMovement;
+import model.element.MobileElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

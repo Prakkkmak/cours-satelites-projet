@@ -1,6 +1,7 @@
-package model;
+package model.event;
 
 import eventHandler.AbstractEvent;
+import model.BeaconSynchronizer;
 
 public class SynchroEvent extends AbstractEvent {
 	private static final long serialVersionUID = 480096146703824993L;

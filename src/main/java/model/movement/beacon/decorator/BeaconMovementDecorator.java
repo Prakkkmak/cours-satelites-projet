@@ -1,6 +1,6 @@
 package model.movement.beacon.decorator;
 
-import model.MobileElement;
+import model.element.MobileElement;
 import model.movement.Movement;
 import model.movement.beacon.BeaconMovement;
 

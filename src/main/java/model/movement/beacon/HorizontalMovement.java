@@ -1,6 +1,6 @@
 package model.movement.beacon;
 
-import model.MobileElement;
+import model.element.MobileElement;
 
 import java.awt.Point;
 

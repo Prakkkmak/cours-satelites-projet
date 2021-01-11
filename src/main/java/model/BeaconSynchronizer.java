@@ -1,5 +1,10 @@
 package model;
 
+import model.element.Beacon;
+import model.element.Satelitte;
+import model.event.SatelitteMoved;
+import model.event.SynchroEvent;
+
 public class BeaconSynchronizer {
 
     private static final int SYNC_RANGE = 10;

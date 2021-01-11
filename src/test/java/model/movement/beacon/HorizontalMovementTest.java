@@ -1,10 +1,7 @@
 package model.movement.beacon;
 
-import model.MobileElement;
-import model.movement.satellite.BaseSatelliteMovement;
+import model.element.MobileElement;
 import org.junit.jupiter.api.Test;
-
-import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 

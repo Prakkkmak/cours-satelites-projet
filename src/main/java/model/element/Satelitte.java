@@ -1,4 +1,6 @@
-package model;
+package model.element;
+
+import model.event.SatelitteMoved;
 
 public class Satelitte extends MobileElement {
 			
@@ -8,6 +10,6 @@ public class Satelitte extends MobileElement {
 	
 	public void move() {
 		super.move();
-		this.send(new SatelitteMoved(this));		
+		this.send(new SatelitteMoved(this));
 	}
 }

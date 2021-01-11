@@ -1,5 +1,9 @@
 package model;
 
+import model.element.Beacon;
+import model.element.Satelitte;
+import model.event.SatelitteMoved;
+
 import java.util.ArrayList;
 
 public class Manager {

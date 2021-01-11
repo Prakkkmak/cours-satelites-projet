@@ -1,6 +1,6 @@
 package model.movement.satellite;
 
-import model.MobileElement;
+import model.element.MobileElement;
 import model.movement.Movement;
 
 public abstract class SatelliteMovement extends Movement {

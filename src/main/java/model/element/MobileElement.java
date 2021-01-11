@@ -1,9 +1,11 @@
-package model;
+package model.element;
 
 import java.awt.Point;
 
 import eventHandler.AbstractEvent;
 import eventHandler.EventHandler;
+import model.Manager;
+import model.event.PositionChanged;
 import model.movement.Movement;
 
 public class MobileElement {
@@ -53,7 +55,7 @@ public class MobileElement {
 		this.dataSize = dataSize;
 	}
 
-	protected void resetData() {
+	public void resetData() {
 		this.dataSize = 0;
 	}
 

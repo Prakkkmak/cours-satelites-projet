@@ -1,6 +1,6 @@
 package model.movement.beacon.decorator;
 
-import model.*;
+import model.element.MobileElement;
 import model.movement.Movement;
 
 public class SyncMovement extends BeaconMovementDecorator {

@@ -1,6 +1,6 @@
 package model.movement;
 
-import model.MobileElement;
+import model.element.MobileElement;
 
 public abstract class Movement {
 	protected int speed = 1;

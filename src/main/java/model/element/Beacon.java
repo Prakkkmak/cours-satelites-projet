@@ -1,7 +1,9 @@
-package model;
+package model.element;
 
+import model.BeaconSynchronizer;
+import model.event.SatelitteMoveListener;
+import model.event.SatelitteMoved;
 import model.movement.*;
-import model.movement.beacon.BeaconMovement;
 import model.movement.beacon.decorator.BackMovement;
 import model.movement.beacon.decorator.GoToSurfaceMovement;
 import model.movement.beacon.decorator.SyncMovement;
@@ -9,7 +11,7 @@ import model.movement.beacon.decorator.SyncMovement;
 /**
  * La valise est un élément mobile qui as pour but de collecter des données et de les envoyer à un satellite.
  */
-public class Beacon extends MobileElement implements SatelitteMoveListener{
+public class Beacon extends MobileElement implements SatelitteMoveListener {
 
 	private final BeaconSynchronizer beaconSynchronizer;
 	private final int startDepth;

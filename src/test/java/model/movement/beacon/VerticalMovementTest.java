@@ -1,6 +1,6 @@
 package model.movement.beacon;
 
-import model.MobileElement;
+import model.element.MobileElement;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

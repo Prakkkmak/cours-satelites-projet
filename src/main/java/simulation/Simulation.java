@@ -7,13 +7,12 @@ import java.awt.Point;
 import graphicLayer.GBounded;
 import graphicLayer.GRect;
 import graphicLayer.GSpace;
-import model.Beacon;
+import model.element.Beacon;
 import model.movement.beacon.HorizontalMovement;
 import model.movement.satellite.BaseSatelliteMovement;
-import model.movement.beacon.VerticalMovement;
 import model.movement.Movement;
 import model.Manager;
-import model.Satelitte;
+import model.element.Satelitte;
 
 public class Simulation {
 
