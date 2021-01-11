@@ -8,7 +8,7 @@ import model.Manager;
 import model.event.PositionChanged;
 import model.movement.Movement;
 
-public class MobileElement {
+public abstract class MobileElement {
 	protected Movement movement;
 	protected Point position;
 	protected EventHandler eventHandler;
