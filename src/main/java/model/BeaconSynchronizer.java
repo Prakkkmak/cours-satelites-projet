@@ -33,7 +33,7 @@ public class BeaconSynchronizer {
             beacon.send(new SynchroEvent(this));
             this.satelitteInSync.send(new SynchroEvent(this));
             beacon.resetData();
-            beacon.getManager().beaconSyncDone(beacon);
+            Manager.getInstance().beaconSyncDone(beacon);
             this.satelitteInSync = null;
         }
     }

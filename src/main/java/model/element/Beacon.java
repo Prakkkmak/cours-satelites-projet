@@ -1,6 +1,7 @@
 package model.element;
 
 import model.BeaconSynchronizer;
+import model.Manager;
 import model.event.SatelitteMoveListener;
 import model.event.SatelitteMoved;
 import model.movement.*;
@@ -56,7 +57,7 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 		Movement syncMovement = new SyncMovement(backMovement);
 		Movement goToSurfaceMovement = new GoToSurfaceMovement(syncMovement);
 		this.setMovement(goToSurfaceMovement);
-		this.getManager().beaconReadyForSync(this);
+		Manager.getInstance().beaconReadyForSync(this);
 	}
 
 

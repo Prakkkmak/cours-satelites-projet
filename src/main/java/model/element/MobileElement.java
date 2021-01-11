@@ -31,14 +31,6 @@ public abstract class MobileElement {
 		this.position = position;
 	}
 
-	public Manager getManager() {
-		return manager;
-	}
-
-	public void setManager(Manager manager) {
-		this.manager = manager;
-	}
-
 	public Movement getMovement() {
 		return movement;
 	}

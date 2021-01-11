@@ -16,12 +16,11 @@ import model.element.Satelitte;
 
 public class Simulation {
 
-	Manager manager = new Manager();
 	GSpace world = new GSpace("Satellite & Balises", new Dimension(800, 600));
 	
 	public void mainLoop() {
 		while (true) {
-			manager.tick();
+			Manager.getInstance().tick();
 			try {
 				Thread.sleep(5);
 			} catch (InterruptedException e) {
@@ -35,7 +34,7 @@ public class Simulation {
 		bal.setPosition(startPos);
 		bal.setStartDepth(startPos.y);
 		bal.setMovement(depl);
-		manager.addElement(bal);
+		Manager.getInstance().addElement(bal);
 		GrBalise grbal = new GrBalise();
 		grbal.setModel(bal);
 		sea.addElement(grbal);
@@ -45,7 +44,7 @@ public class Simulation {
 		Satelitte sat = new Satelitte(memorySize);
 		sat.setPosition(startPos);
 		sat.setMovement(new BaseSatelliteMovement(-10,1000, speed));
-		manager.addElement(sat);
+		Manager.getInstance().addElement(sat);
 		GrSatelitte grSat = new GrSatelitte();
 		grSat.setModel(sat);
 		sky.addElement(grSat);

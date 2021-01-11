@@ -10,7 +10,19 @@ import java.util.List;
 
 public class Manager {
 
+	public static Manager manager;
+
+
 	List<MobileElement> elements = new ArrayList<>();
+
+	private Manager(){ }
+
+	public static Manager getInstance(){
+		if(manager == null){
+			manager = new Manager();
+		}
+		return manager;
+	}
 
 	public void addElement(MobileElement element){
 		elements.add(element);
@@ -27,6 +39,7 @@ public class Manager {
 			}
 		}
 	}
+
 	public void beaconSyncDone(Beacon b) {
 		for (MobileElement element : this.elements) {
 			if(element instanceof Satelitte){
