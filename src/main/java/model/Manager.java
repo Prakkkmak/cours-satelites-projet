@@ -6,46 +6,40 @@ import model.element.Satelitte;
 import model.event.SatelitteMoved;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Manager {
 
-	public static Manager manager;
+	public static Manager instance;
 
 
-	List<MobileElement> elements = new ArrayList<>();
+	private final Set<MobileElement> elements = new HashSet<>();
 
 	private Manager(){ }
 
 	public static Manager getInstance(){
-		if(manager == null){
-			manager = new Manager();
+		if(instance == null){
+			instance = new Manager();
 		}
-		return manager;
+		return instance;
 	}
 
 	public void addElement(MobileElement element){
 		elements.add(element);
 	}
 
-	public void tick() {
-		for (MobileElement element : this.elements) element.tick();
-	}
-	
-	public void beaconReadyForSync(Beacon b) {
-		for (MobileElement element : this.elements) {
-			if(element instanceof Satelitte){
-				element.registerListener(SatelitteMoved.class, b);
-			}
-		}
+	public Set<MobileElement> getElements(){
+		return elements;
 	}
 
-	public void beaconSyncDone(Beacon b) {
-		for (MobileElement element : this.elements) {
-			if(element instanceof Satelitte){
-				element.unregisterListener(SatelitteMoved.class, b);
-			}
-		}
+	public int size(){
+		return elements.size();
+	}
+
+	public void tick() {
+		for (MobileElement element : this.elements) element.tick();
 	}
 
 }

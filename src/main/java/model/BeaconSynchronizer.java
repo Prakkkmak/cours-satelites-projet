@@ -1,6 +1,7 @@
 package model;
 
 import model.element.Beacon;
+import model.element.MobileElement;
 import model.element.Satelitte;
 import model.event.SatelitteMoved;
 import model.event.SynchroEvent;
@@ -33,8 +34,24 @@ public class BeaconSynchronizer {
             beacon.send(new SynchroEvent(this));
             this.satelitteInSync.send(new SynchroEvent(this));
             beacon.resetData();
-            Manager.getInstance().beaconSyncDone(beacon);
+            syncDone();
             this.satelitteInSync = null;
+        }
+    }
+
+    public void readyForSync() {
+        for (MobileElement element : Manager.getInstance().getElements()) {
+            if(element instanceof Satelitte){
+                element.registerListener(SatelitteMoved.class, beacon);
+            }
+        }
+    }
+
+    public void syncDone() {
+        for (MobileElement element : Manager.getInstance().getElements()) {
+            if(element instanceof Satelitte){
+                element.unregisterListener(SatelitteMoved.class, beacon);
+            }
         }
     }
 }
