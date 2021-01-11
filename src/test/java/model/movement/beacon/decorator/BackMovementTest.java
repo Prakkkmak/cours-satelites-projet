@@ -26,7 +26,7 @@ class BackMovementTest {
     void shouldMoveMobileElement() {
         mobileElement.setPosition(new Point(0, 0));
         mobileElement.move();
-        assertEquals(3, mobileElement.getPosition().y);
+        assertEquals(1, mobileElement.getPosition().y);
     }
 
     @Test

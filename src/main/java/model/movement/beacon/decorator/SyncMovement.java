@@ -11,7 +11,7 @@ public class SyncMovement extends BeaconMovementDecorator {
 
 	@Override
 	public void move(MobileElement target) {
-		isReadyForNextMovement(target);
+		super.move(target);
 	}
 
 	@Override
