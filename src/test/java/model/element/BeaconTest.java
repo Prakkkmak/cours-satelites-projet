@@ -3,6 +3,7 @@ package model.element;
 import model.event.SatelitteMoved;
 import model.movement.beacon.HorizontalMovement;
 import model.movement.beacon.decorator.GoToSurfaceMovement;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -12,6 +13,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class BeaconTest {
 
     Beacon beacon = new Beacon(10);
+
+    @BeforeEach
+    void init(){
+        beacon.setStartDepth(10);
+    }
 
     @Test
     void shouldBeInSurface() {
