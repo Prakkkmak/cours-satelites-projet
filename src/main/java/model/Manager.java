@@ -1,13 +1,9 @@
 package model;
 
-import model.element.Beacon;
 import model.element.MobileElement;
-import model.element.Satelitte;
-import model.event.SatelitteMoved;
+import model.visitor.IVisitor;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 //TODO virer le singleton
 //TODO virer le getElements

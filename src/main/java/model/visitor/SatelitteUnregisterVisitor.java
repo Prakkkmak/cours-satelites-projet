@@ -1,11 +1,12 @@
-package model;
+package model.visitor;
 
 import model.element.Beacon;
 import model.element.MobileElement;
 import model.element.Satelitte;
 import model.event.SatelitteMoved;
+import model.visitor.IVisitor;
 
-public class SatelitteUnregisterVisitor implements IVisitor{
+public class SatelitteUnregisterVisitor implements IVisitor {
 
     Beacon beacon;
 
@@ -25,6 +26,6 @@ public class SatelitteUnregisterVisitor implements IVisitor{
 
     @Override
     public void visit(Satelitte satelitte) {
-        satelitte.registerListener(SatelitteMoved.class, this.beacon);
+        satelitte.unregisterListener(SatelitteMoved.class, this.beacon);
     }
 }

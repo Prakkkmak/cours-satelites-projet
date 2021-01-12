@@ -1,4 +1,4 @@
-package model;
+package model.visitor;
 
 import model.element.Beacon;
 import model.element.MobileElement;

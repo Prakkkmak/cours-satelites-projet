@@ -1,6 +1,6 @@
 package model.element;
 
-import model.IVisitor;
+import model.visitor.IVisitor;
 import model.event.SatelitteMoved;
 
 public class Satelitte extends MobileElement {

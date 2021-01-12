@@ -1,14 +1,11 @@
 package model.element;
 
 import model.BeaconSynchronizer;
-import model.IVisitable;
-import model.IVisitor;
-import model.Manager;
+import model.visitor.IVisitor;
 import model.event.SatelitteMoveListener;
 import model.event.SatelitteMoved;
 import model.movement.*;
 import model.movement.beacon.decorator.BackMovement;
-import model.movement.beacon.decorator.BeaconMovementDecorator;
 import model.movement.beacon.decorator.GoToSurfaceMovement;
 import model.movement.beacon.decorator.SyncMovement;
 

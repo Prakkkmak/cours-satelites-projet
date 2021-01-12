@@ -1,10 +1,11 @@
 package model;
 
 import model.element.Beacon;
-import model.element.MobileElement;
 import model.element.Satelitte;
 import model.event.SatelitteMoved;
 import model.event.SynchroEvent;
+import model.visitor.SatelitteRegisterVisitor;
+import model.visitor.SatelitteUnregisterVisitor;
 
 /**
  * Gère la synchronisation avec les satélites
@@ -59,6 +60,6 @@ public class BeaconSynchronizer {
     }
 
     public void syncDone() {
-        Manager.getInstance().visitElements(new SatelitteRegisterVisitor(this.beacon));
+        Manager.getInstance().visitElements(new SatelitteUnregisterVisitor(this.beacon));
     }
 }

@@ -4,9 +4,8 @@ import java.awt.Point;
 
 import eventHandler.AbstractEvent;
 import eventHandler.EventHandler;
-import model.IVisitable;
-import model.IVisitor;
-import model.Manager;
+import model.visitor.IVisitable;
+import model.visitor.IVisitor;
 import model.event.PositionChanged;
 import model.movement.Movement;
 
