@@ -4,17 +4,18 @@ import java.awt.Point;
 
 import eventHandler.AbstractEvent;
 import eventHandler.EventHandler;
+import model.IVisitable;
+import model.IVisitor;
 import model.Manager;
 import model.event.PositionChanged;
 import model.movement.Movement;
 
-public abstract class MobileElement {
+public abstract class MobileElement implements IVisitable<IVisitor> {
 	protected Movement movement;
 	protected Point position;
 	protected EventHandler eventHandler;
 	protected int memorySize;
 	protected int dataSize;
-	protected Manager manager;
 
 	public MobileElement(int memorySize) {
 		eventHandler = new EventHandler();

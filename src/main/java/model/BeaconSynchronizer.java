@@ -55,18 +55,10 @@ public class BeaconSynchronizer {
     }
 
     public void readyForSync() {
-        for (MobileElement element : Manager.getInstance().getElements()) {
-            if(element instanceof Satelitte){
-                element.registerListener(SatelitteMoved.class, beacon);
-            }
-        }
+        Manager.getInstance().visitElements(new SatelitteRegisterVisitor(this.beacon));
     }
 
     public void syncDone() {
-        for (MobileElement element : Manager.getInstance().getElements()) {
-            if(element instanceof Satelitte){
-                element.unregisterListener(SatelitteMoved.class, beacon);
-            }
-        }
+        Manager.getInstance().visitElements(new SatelitteRegisterVisitor(this.beacon));
     }
 }

@@ -25,7 +25,6 @@ public class GoToSurfaceMovement extends BeaconMovementDecorator {
 
 	@Override
 	public boolean isReadyForNextMovement(MobileElement target) {
-		//TODO régler le probleme de cast target.getManager().beaconReadyForSync((Beacon) target);
 		return target.getPosition().getY() <= 0;
 	}
 }

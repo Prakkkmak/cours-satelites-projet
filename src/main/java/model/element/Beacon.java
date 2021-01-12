@@ -1,6 +1,8 @@
 package model.element;
 
 import model.BeaconSynchronizer;
+import model.IVisitable;
+import model.IVisitor;
 import model.Manager;
 import model.event.SatelitteMoveListener;
 import model.event.SatelitteMoved;
@@ -24,6 +26,10 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 		beaconSynchronizer = new BeaconSynchronizer(this);
 	}
 
+	public BeaconSynchronizer getBeaconSynchronizer() {
+		return beaconSynchronizer;
+	}
+
 	public void setStartDepth(int startDepth) {
 		this.startDepth = startDepth;
 	}
@@ -39,7 +45,7 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 	protected void readSensors() {
 		this.setDataSize(this.getDataSize() + 1);
 	}
-
+	//TODO machine a etat
 	@Override
 	public void tick() {
 		if(!this.memoryFull()){
@@ -65,8 +71,8 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 	}
 
 
-
-
-
-
+	@Override
+	public void accept(IVisitor visitor) {
+		visitor.visit(this);
+	}
 }

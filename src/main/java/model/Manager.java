@@ -9,11 +9,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+//TODO virer le singleton
+//TODO virer le getElements
+//TODO multithread ?
 public class Manager {
 
 	public static Manager instance;
-
 
 	private final Set<MobileElement> elements = new HashSet<>();
 
@@ -30,16 +31,19 @@ public class Manager {
 		elements.add(element);
 	}
 
-	public Set<MobileElement> getElements(){
-		return elements;
-	}
-
+	//Utilisable pour les tests
 	public int size(){
 		return elements.size();
 	}
 
 	public void tick() {
 		for (MobileElement element : this.elements) element.tick();
+	}
+
+	public void visitElements(IVisitor visitor){
+		for(MobileElement element : elements){
+			element.accept(visitor);
+		}
 	}
 
 }

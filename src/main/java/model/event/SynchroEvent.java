@@ -4,7 +4,7 @@ import eventHandler.AbstractEvent;
 import model.BeaconSynchronizer;
 
 import java.io.Serial;
-
+//TODO regarder les events _> pê generique
 public class SynchroEvent extends AbstractEvent {
 
 	@Serial
