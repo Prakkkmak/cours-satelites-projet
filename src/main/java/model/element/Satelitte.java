@@ -1,6 +1,6 @@
 package model.element;
 
-import model.visitor.IVisitor;
+import model.registerer.IRegisterer;
 import model.event.SatelitteMoved;
 
 public class Satelitte extends MobileElement {
@@ -14,7 +14,8 @@ public class Satelitte extends MobileElement {
 		this.send(new SatelitteMoved(this));
 	}
 
-	public void accept(IVisitor visitor) {
-		visitor.visit(this);
+	@Override
+	public void register(IRegisterer registerer) {
+		registerer.run(this);
 	}
 }

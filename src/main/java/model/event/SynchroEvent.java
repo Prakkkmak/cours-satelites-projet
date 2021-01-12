@@ -1,7 +1,7 @@
 package model.event;
 
 import eventHandler.AbstractEvent;
-import model.BeaconSynchronizer;
+import model.element.BeaconSynchronizer;
 
 import java.io.Serial;
 //TODO regarder les events _> pê generique

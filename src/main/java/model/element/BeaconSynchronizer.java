@@ -1,11 +1,12 @@
-package model;
+package model.element;
 
+import model.Manager;
 import model.element.Beacon;
 import model.element.Satelitte;
 import model.event.SatelitteMoved;
 import model.event.SynchroEvent;
-import model.visitor.SatelitteRegisterVisitor;
-import model.visitor.SatelitteUnregisterVisitor;
+import model.registerer.SatelitteRegisterRegisterer;
+import model.registerer.SatelitteUnregisterRegisterer;
 
 /**
  * Gère la synchronisation avec les satélites
@@ -44,8 +45,8 @@ public class BeaconSynchronizer {
         int tarX = beacon.getPosition().x;
         if (satX > tarX - SYNC_RANGE && satX < tarX + SYNC_RANGE) {
             if(this.satelitteInSync == null) startSync(sat);
-            beacon.setDataSize(beacon.getDataSize() - 1);
-            if(beacon.getDataSize() <= 0){
+            beacon.setCurrentData(beacon.getCurrentData() - 1);
+            if(beacon.getCurrentData() <= 0){
                 stopSync();
                 syncDone();
             }
@@ -56,10 +57,10 @@ public class BeaconSynchronizer {
     }
 
     public void readyForSync() {
-        Manager.getInstance().visitElements(new SatelitteRegisterVisitor(this.beacon));
+        Manager.getInstance().registerElements(new SatelitteRegisterRegisterer(this.beacon));
     }
 
     public void syncDone() {
-        Manager.getInstance().visitElements(new SatelitteUnregisterVisitor(this.beacon));
+        Manager.getInstance().registerElements(new SatelitteUnregisterRegisterer(this.beacon));
     }
 }

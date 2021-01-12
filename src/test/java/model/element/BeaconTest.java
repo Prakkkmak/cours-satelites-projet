@@ -34,7 +34,7 @@ class BeaconTest {
     @Test
     void shouldReadSensors() {
         beacon.readSensors();
-        assertEquals(1, beacon.getDataSize());
+        assertEquals(1, beacon.getCurrentData());
     }
 
     @Test
@@ -42,13 +42,13 @@ class BeaconTest {
         beacon.setPosition(new Point(0,1));
         beacon.setMovement(new HorizontalMovement(0,0));
         beacon.tick();
-        assertEquals(1, beacon.getDataSize());
+        assertEquals(1, beacon.getCurrentData());
     }
 
     @Test
     void shouldHaveNextMovements() {
         beacon.setPosition(new Point(0,10));
-        beacon.setDataSize(10);
+        beacon.setCurrentData(10);
         beacon.setMovement(new HorizontalMovement(0,0));
         beacon.tick();
         assertTrue(beacon.getMovement() instanceof GoToSurfaceMovement);

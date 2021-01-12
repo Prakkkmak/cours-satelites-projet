@@ -1,7 +1,8 @@
 package model.element;
 
-import model.BeaconSynchronizer;
-import model.visitor.IVisitor;
+import model.element.state.IBeaconState;
+import model.element.state.RecoverDataState;
+import model.registerer.IRegisterer;
 import model.event.SatelitteMoveListener;
 import model.event.SatelitteMoved;
 import model.movement.*;
@@ -16,11 +17,13 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 
 	private final BeaconSynchronizer beaconSynchronizer;
 	private int startDepth;
+	private IBeaconState state;
 
 	public Beacon(int memorySize) {
 		super(memorySize);
 		startDepth = this.getDepth();
 		beaconSynchronizer = new BeaconSynchronizer(this);
+		state = new RecoverDataState();
 	}
 
 	public BeaconSynchronizer getBeaconSynchronizer() {
@@ -39,18 +42,13 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 		return this.getDepth() <= 0;
 	}
 
-	protected void readSensors() {
-		this.setDataSize(this.getDataSize() + 1);
+	public void readSensors() {
+		this.setCurrentData(this.getCurrentData() + 1);
 	}
 	//TODO machine a etat
 	@Override
 	public void tick() {
-		if(!this.memoryFull()){
-			if(!isInSurface()) this.readSensors();
-		}
-		else{
-			setNextMovements();
-		}
+		this.state = this.state.next(this);
 		super.tick();
 	}
 
@@ -59,7 +57,7 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 		beaconSynchronizer.sync(arg);
 	}
 
-	private void setNextMovements(){
+	public void setNextMovements(){
 		Movement backMovement = new BackMovement(this.movement, this.startDepth);
 		Movement syncMovement = new SyncMovement(backMovement);
 		Movement goToSurfaceMovement = new GoToSurfaceMovement(syncMovement);
@@ -69,7 +67,7 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 
 
 	@Override
-	public void accept(IVisitor visitor) {
-		visitor.visit(this);
+	public void register(IRegisterer registerer) {
+		registerer.run(this);
 	}
 }

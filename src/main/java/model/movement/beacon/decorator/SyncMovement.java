@@ -16,6 +16,6 @@ public class SyncMovement extends BeaconMovementDecorator {
 
 	@Override
 	public boolean isReadyForNextMovement(MobileElement target) {
-		return target.getDataSize() < 1;
+		return target.isMemoryEmpty();
 	}
 }

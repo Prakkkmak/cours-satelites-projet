@@ -1,6 +1,7 @@
 package model;
 
 import model.element.Beacon;
+import model.element.BeaconSynchronizer;
 import model.element.Satelitte;
 import model.event.SatelitteMoved;
 import org.junit.jupiter.api.Test;
@@ -21,7 +22,7 @@ class BeaconSynchronizerTest {
     @Test
     void shouldSyncIsInProgress() {
         Satelitte satelitte = new Satelitte(10);
-        beacon.setDataSize(10);
+        beacon.setCurrentData(10);
         SatelitteMoved satelitteMoved = new SatelitteMoved(satelitte);
         synchronizer.sync(satelitteMoved);
         assertTrue(synchronizer.isSyncInProgress());
@@ -31,8 +32,8 @@ class BeaconSynchronizerTest {
     void shouldSyncRemoveData() {
         Satelitte satelitte = new Satelitte(10);
         SatelitteMoved satelitteMoved = new SatelitteMoved(satelitte);
-        beacon.setDataSize(10);
+        beacon.setCurrentData(10);
         synchronizer.sync(satelitteMoved);
-        assertEquals(9, beacon.getDataSize());
+        assertEquals(9, beacon.getCurrentData());
     }
 }

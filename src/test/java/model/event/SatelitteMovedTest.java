@@ -4,9 +4,6 @@ import model.element.Beacon;
 import model.element.Satelitte;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import simulation.GrElementMobile;
-
-import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,9 +20,9 @@ class SatelitteMovedTest {
     @Test
     void shouldRunOnWorks() {
         Beacon beacon = new Beacon(10);
-        beacon.setDataSize(10);
-        assertEquals(10, beacon.getDataSize());
+        beacon.setCurrentData(10);
+        assertEquals(10, beacon.getCurrentData());
         satelitteMoved.runOn(beacon);
-        assertEquals(9, beacon.getDataSize());
+        assertEquals(9, beacon.getCurrentData());
     }
 }

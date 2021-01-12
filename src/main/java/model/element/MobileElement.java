@@ -4,22 +4,22 @@ import java.awt.Point;
 
 import eventHandler.AbstractEvent;
 import eventHandler.EventHandler;
-import model.visitor.IVisitable;
-import model.visitor.IVisitor;
+import model.registerer.IRegistrable;
+import model.registerer.IRegisterer;
 import model.event.PositionChanged;
 import model.movement.Movement;
 
-public abstract class MobileElement implements IVisitable<IVisitor> {
+public abstract class MobileElement implements IRegistrable<IRegisterer> {
 	protected Movement movement;
 	protected Point position;
 	protected EventHandler eventHandler;
 	protected int memorySize;
-	protected int dataSize;
+	protected int currentData;
 
 	public MobileElement(int memorySize) {
 		eventHandler = new EventHandler();
 		this.memorySize = memorySize;
-		this.dataSize = 0;
+		this.currentData = 0;
 		this.position = new Point(0, 0);
 	}
 
@@ -39,22 +39,24 @@ public abstract class MobileElement implements IVisitable<IVisitor> {
 		this.movement = movement;
 	}
 
-	public int getDataSize() {
-		return dataSize;
+	public int getCurrentData() {
+		return currentData;
 	}
 
-	public void setDataSize(int dataSize) {
-		this.dataSize = dataSize;
+	public void setCurrentData(int currentData) {
+		this.currentData = currentData;
 	}
 
 	public void resetData() {
-		this.dataSize = 0;
+		this.currentData = 0;
 	}
 
-	protected boolean memoryFull() {
-		return (this.dataSize >= this.memorySize);
+	public boolean isMemoryFull() {
+		return (this.currentData >= this.memorySize);
 	}
-
+	public boolean isMemoryEmpty() {
+		return (this.currentData <= 0);
+	}
 	// enregistrement des listeners
 	public void registerListener(Class<? extends AbstractEvent> whichEventType, Object listener) {
 		eventHandler.registerListener(whichEventType, listener);

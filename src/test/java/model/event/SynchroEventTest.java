@@ -1,13 +1,10 @@
 package model.event;
 
-import model.BeaconSynchronizer;
 import model.element.Beacon;
 import model.element.Satelitte;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import simulation.GrBalise;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SynchroEventTest {
 
@@ -22,7 +19,7 @@ class SynchroEventTest {
 
     @Test
     void shouldRunOnWorks() {
-        beacon.setDataSize(10);
+        beacon.setCurrentData(10);
         Satelitte satelitte = new Satelitte(10);
         SatelitteMoved satelitteMoved = new SatelitteMoved(satelitte);
         beacon.whenSatelitteMoved(satelitteMoved);

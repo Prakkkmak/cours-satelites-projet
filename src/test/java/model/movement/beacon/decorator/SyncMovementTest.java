@@ -18,7 +18,7 @@ class SyncMovementTest {
     @BeforeEach
     void init(){
         mobileElement.setMovement(movement);
-        mobileElement.setDataSize(2);
+        mobileElement.setCurrentData(2);
     }
 
     @Test
@@ -32,7 +32,7 @@ class SyncMovementTest {
     @Test
     void shouldChangeToNextMovement() {
         mobileElement.setPosition(new Point(0, 0));
-        mobileElement.setDataSize(0);
+        mobileElement.setCurrentData(0);
         mobileElement.move();
         assertTrue(mobileElement.getMovement() instanceof BackMovement);
     }

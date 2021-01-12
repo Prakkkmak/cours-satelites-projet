@@ -14,6 +14,7 @@ public abstract class BeaconMovementDecorator extends BeaconMovement {
 
     @Override
     public void move(MobileElement target){
+        System.out.println(next + "");
         if(isReadyForNextMovement(target)) this.nextMovement(target);
     }
 

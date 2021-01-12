@@ -1,7 +1,7 @@
 package model;
 
 import model.element.MobileElement;
-import model.visitor.IVisitor;
+import model.registerer.IRegisterer;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -36,9 +36,9 @@ public class Manager {
 		for (MobileElement element : this.elements) element.tick();
 	}
 
-	public void visitElements(IVisitor visitor){
+	public void registerElements(IRegisterer registerer){
 		for(MobileElement element : elements){
-			element.accept(visitor);
+			element.register(registerer);
 		}
 	}
 
