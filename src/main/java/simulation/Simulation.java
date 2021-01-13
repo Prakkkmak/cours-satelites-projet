@@ -14,6 +14,8 @@ import model.movement.satellite.BaseSatelliteMovement;
 import model.movement.Movement;
 import model.Manager;
 import model.element.Satelitte;
+import simulation.vue.GrBalise;
+import simulation.vue.GrSatelitte;
 
 public class Simulation {
 

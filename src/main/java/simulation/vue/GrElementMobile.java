@@ -1,4 +1,4 @@
-package simulation;
+package simulation.vue;
 
 
 import java.awt.BasicStroke;

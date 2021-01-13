@@ -4,7 +4,7 @@ import model.element.Beacon;
 import model.element.Satelitte;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import simulation.GrElementMobile;
+import simulation.vue.GrElementMobile;
 
 import java.awt.*;
 

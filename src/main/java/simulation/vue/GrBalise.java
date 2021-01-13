@@ -1,4 +1,4 @@
-package simulation;
+package simulation.vue;
 
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
@@ -9,10 +9,9 @@ import javax.imageio.ImageIO;
 
 import graphicLayer.GImage;
 
-public class GrSatelitte extends GrElementMobile {
-
-	public GrSatelitte() {
-		File path = new File("satellite.png");
+public class GrBalise extends GrElementMobile {
+	public GrBalise() {
+		File path = new File("balise.png");
 		this.withoutBorder();
 		this.withoutBackground();
 		BufferedImage rawImage = null;
@@ -24,5 +23,5 @@ public class GrSatelitte extends GrElementMobile {
 		this.addElement(new GImage(rawImage));
 		this.setDimension(new Dimension(rawImage.getWidth(), rawImage.getHeight()));
 	}
-	
+
 }
