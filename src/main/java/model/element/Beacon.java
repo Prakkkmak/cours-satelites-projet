@@ -49,7 +49,7 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 	public void readSensors() {
 		this.setCurrentData(this.getCurrentData() + 1);
 	}
-	//TODO machine a etat
+
 	@Override
 	public void tick() {
 		this.state = this.state.next(this);

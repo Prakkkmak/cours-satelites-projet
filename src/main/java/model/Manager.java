@@ -5,7 +5,6 @@ import model.registerer.IRegisterer;
 
 import java.util.HashSet;
 import java.util.Set;
-//TODO virer le singleton
 //TODO multithread ?
 public class Manager {
 
