@@ -53,6 +53,7 @@ public class BeaconSynchronizer {
         }
         else if(this.satelitteInSync != null){
             stopSync();
+            //TODO syncDone()
         }
     }
 

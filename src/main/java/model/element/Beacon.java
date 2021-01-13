@@ -30,6 +30,10 @@ public class Beacon extends MobileElement implements SatelitteMoveListener {
 		return beaconSynchronizer;
 	}
 
+	public int getStartDepth(){
+		return this.startDepth;
+	}
+
 	public void setStartDepth(int startDepth) {
 		this.startDepth = startDepth;
 	}

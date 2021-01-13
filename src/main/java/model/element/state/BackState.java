@@ -5,6 +5,11 @@ import model.element.Beacon;
 public class BackState implements IBeaconState {
     @Override
     public IBeaconState next(Beacon beacon) {
-        return new RecoverDataState();
+        if(beacon.getStartDepth() <= beacon.getDepth()){
+            return new RecoverDataState();
+        }
+        else{
+            return this;
+        }
     }
 }
