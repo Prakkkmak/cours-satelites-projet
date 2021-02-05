@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/src/main/java/2DGraphicCore/2DGraphicCore.iml" filepath="$PROJECT_DIR$/src/main/java/2DGraphicCore/2DGraphicCore.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/main/java/EventHandler/EventHandler.iml" filepath="$PROJECT_DIR$/src/main/java/EventHandler/EventHandler.iml" />
-      <module fileurl="file://$PROJECT_DIR$/cours-satelites-projet.iml" filepath="$PROJECT_DIR$/cours-satelites-projet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cours-satelites-projet.iml" filepath="$PROJECT_DIR$/.idea/cours-satelites-projet.iml" />
     </modules>
   </component>
 </project>
