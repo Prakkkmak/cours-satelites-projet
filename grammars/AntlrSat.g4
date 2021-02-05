@@ -1,6 +1,6 @@
-grammar satellite;
+grammar AntlrSat;
 
-spawn : 'spawn' OBJ NB NB NB DEP?; // spawn S x y speed
+spawn : 'spawn ' OBJ ' ' NB ' ' NB ' ' NB (' ' DEP)?'!'; // spawn S x y speed
 pause : 'pause' ; // Pause the sim
 
 OBJ : ('S'|'B') ;

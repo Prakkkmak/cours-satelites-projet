@@ -1,4 +1,4 @@
-// Generated from satellite.g4 by ANTLR 4.9.1
+// Generated from AntlrSat.g4 by ANTLR 4.9.1
 package generated;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -10,14 +10,14 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class satelliteParser extends Parser {
+public class AntlrSatParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.9.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, OBJ=3, NB=4, DEP=5;
+		T__0=1, T__1=2, T__2=3, OBJ=4, NB=5, DEP=6;
 	public static final int
 		RULE_spawn = 0, RULE_pause = 1;
 	private static String[] makeRuleNames() {
@@ -29,13 +29,13 @@ public class satelliteParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'spawn'", "'pause'"
+			null, "'spawn '", "' '", "'pause'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, "OBJ", "NB", "DEP"
+			null, null, null, null, "OBJ", "NB", "DEP"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -73,7 +73,7 @@ public class satelliteParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "satellite.g4"; }
+	public String getGrammarFileName() { return "AntlrSat.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -84,33 +84,33 @@ public class satelliteParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public satelliteParser(TokenStream input) {
+	public AntlrSatParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	public static class SpawnContext extends ParserRuleContext {
-		public TerminalNode OBJ() { return getToken(satelliteParser.OBJ, 0); }
-		public List<TerminalNode> NB() { return getTokens(satelliteParser.NB); }
+		public TerminalNode OBJ() { return getToken(AntlrSatParser.OBJ, 0); }
+		public List<TerminalNode> NB() { return getTokens(AntlrSatParser.NB); }
 		public TerminalNode NB(int i) {
-			return getToken(satelliteParser.NB, i);
+			return getToken(AntlrSatParser.NB, i);
 		}
-		public TerminalNode DEP() { return getToken(satelliteParser.DEP, 0); }
+		public TerminalNode DEP() { return getToken(AntlrSatParser.DEP, 0); }
 		public SpawnContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_spawn; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof satelliteListener ) ((satelliteListener)listener).enterSpawn(this);
+			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).enterSpawn(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof satelliteListener ) ((satelliteListener)listener).exitSpawn(this);
+			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).exitSpawn(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof satelliteVisitor ) return ((satelliteVisitor<? extends T>)visitor).visitSpawn(this);
+			if ( visitor instanceof AntlrSatVisitor ) return ((AntlrSatVisitor<? extends T>)visitor).visitSpawn(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -127,17 +127,25 @@ public class satelliteParser extends Parser {
 			setState(5);
 			match(OBJ);
 			setState(6);
-			match(NB);
+			match(T__1);
 			setState(7);
 			match(NB);
 			setState(8);
+			match(T__1);
+			setState(9);
 			match(NB);
 			setState(10);
+			match(T__1);
+			setState(11);
+			match(NB);
+			setState(14);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==DEP) {
+			if (_la==T__1) {
 				{
-				setState(9);
+				setState(12);
+				match(T__1);
+				setState(13);
 				match(DEP);
 				}
 			}
@@ -162,15 +170,15 @@ public class satelliteParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_pause; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof satelliteListener ) ((satelliteListener)listener).enterPause(this);
+			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).enterPause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof satelliteListener ) ((satelliteListener)listener).exitPause(this);
+			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).exitPause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof satelliteVisitor ) return ((satelliteVisitor<? extends T>)visitor).visitPause(this);
+			if ( visitor instanceof AntlrSatVisitor ) return ((AntlrSatVisitor<? extends T>)visitor).visitPause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -181,8 +189,8 @@ public class satelliteParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(12);
-			match(T__1);
+			setState(16);
+			match(T__2);
 			}
 		}
 		catch (RecognitionException re) {
@@ -197,11 +205,12 @@ public class satelliteParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\7\21\4\2\t\2\4\3"+
-		"\t\3\3\2\3\2\3\2\3\2\3\2\3\2\5\2\r\n\2\3\3\3\3\3\3\2\2\4\2\4\2\2\2\17"+
-		"\2\6\3\2\2\2\4\16\3\2\2\2\6\7\7\3\2\2\7\b\7\5\2\2\b\t\7\6\2\2\t\n\7\6"+
-		"\2\2\n\f\7\6\2\2\13\r\7\7\2\2\f\13\3\2\2\2\f\r\3\2\2\2\r\3\3\2\2\2\16"+
-		"\17\7\4\2\2\17\5\3\2\2\2\3\f";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\b\25\4\2\t\2\4\3"+
+		"\t\3\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2\21\n\2\3\3\3\3\3\3\2"+
+		"\2\4\2\4\2\2\2\23\2\6\3\2\2\2\4\22\3\2\2\2\6\7\7\3\2\2\7\b\7\6\2\2\b\t"+
+		"\7\4\2\2\t\n\7\7\2\2\n\13\7\4\2\2\13\f\7\7\2\2\f\r\7\4\2\2\r\20\7\7\2"+
+		"\2\16\17\7\4\2\2\17\21\7\b\2\2\20\16\3\2\2\2\20\21\3\2\2\2\21\3\3\2\2"+
+		"\2\22\23\7\5\2\2\23\5\3\2\2\2\3\20";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -20,7 +20,19 @@ import simulation.vue.GrSatelitte;
 public class Simulation {
 
 	GSpace world = new GSpace("Satellite & Balises", new Dimension(800, 600));
-	
+	private GRect sea;
+	private GRect sky;
+	public Simulation(){
+		sky = new GRect();
+		sky.setColor(Color.WHITE);
+		sky.setDimension(new Dimension(800, 300));
+		sea = new GRect();
+		sea.setColor(Color.blue);
+		sea.setDimension(new Dimension(800, 300));
+		sea.setPosition(new Point(0, 300));
+		this.world.addElement(sky);
+		this.world.addElement(sea);
+	}
 	public void mainLoop() {
 		while (true) {
 			Manager.getInstance().tick();
@@ -42,6 +54,9 @@ public class Simulation {
 		grbal.setModel(bal);
 		sea.addElement(grbal);
 	}
+	public void addBalise(int memorySize, Point startPos, Movement depl) {
+		addBalise(sea, memorySize, startPos, depl);
+	}
 
 	public void addSatelitte(GBounded sky, int memorySize, Point startPos, int speed) {
 		Satelitte sat = new Satelitte(memorySize);
@@ -52,17 +67,12 @@ public class Simulation {
 		grSat.setModel(sat);
 		sky.addElement(grSat);
 	}
+
+	public void addSatelitte(int memorySize, Point startPos, int speed) {
+		addSatelitte(sky, memorySize, startPos, speed);
+	}
 	
 	public void launch( ) {
-		GRect sky = new GRect();
-		sky.setColor(Color.WHITE);
-		sky.setDimension(new Dimension(800, 300));
-		GRect sea = new GRect();
-		sea.setColor(Color.blue);
-		sea.setDimension(new Dimension(800, 300));
-		sea.setPosition(new Point(0, 300));
-		this.world.addElement(sky);
-		this.world.addElement(sea);
 		this.addSatelitte(sky, 10000, new Point(10,50), 2);
 		this.addSatelitte(sky, 10000, new Point(100,10), 1);
 		this.addSatelitte(sky, 10000, new Point(400,90), 3);

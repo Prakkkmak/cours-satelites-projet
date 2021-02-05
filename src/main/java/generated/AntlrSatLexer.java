@@ -1,4 +1,4 @@
-// Generated from satellite.g4 by ANTLR 4.9.1
+// Generated from AntlrSat.g4 by ANTLR 4.9.1
 package generated;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
@@ -10,14 +10,14 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class satelliteLexer extends Lexer {
+public class AntlrSatLexer extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.9.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, OBJ=3, NB=4, DEP=5;
+		T__0=1, T__1=2, T__2=3, OBJ=4, NB=5, DEP=6;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -28,20 +28,20 @@ public class satelliteLexer extends Lexer {
 
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"T__0", "T__1", "OBJ", "NB", "DEP"
+			"T__0", "T__1", "T__2", "OBJ", "NB", "DEP"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'spawn'", "'pause'"
+			null, "'spawn '", "' '", "'pause'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, "OBJ", "NB", "DEP"
+			null, null, null, null, "OBJ", "NB", "DEP"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -79,13 +79,13 @@ public class satelliteLexer extends Lexer {
 	}
 
 
-	public satelliteLexer(CharStream input) {
+	public AntlrSatLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "satellite.g4"; }
+	public String getGrammarFileName() { return "AntlrSat.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -103,18 +103,19 @@ public class satelliteLexer extends Lexer {
 	public ATN getATN() { return _ATN; }
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\7+\b\1\4\2\t\2\4"+
-		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3"+
-		"\3\3\3\3\3\4\3\4\3\5\6\5\35\n\5\r\5\16\5\36\3\6\3\6\3\6\3\6\3\6\3\6\3"+
-		"\6\3\6\3\6\5\6*\n\6\2\2\7\3\3\5\4\7\5\t\6\13\7\3\2\4\4\2DDUU\3\2\62;\2"+
-		"-\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2\2\13\3\2\2\2\3\r\3\2"+
-		"\2\2\5\23\3\2\2\2\7\31\3\2\2\2\t\34\3\2\2\2\13)\3\2\2\2\r\16\7u\2\2\16"+
-		"\17\7r\2\2\17\20\7c\2\2\20\21\7y\2\2\21\22\7p\2\2\22\4\3\2\2\2\23\24\7"+
-		"r\2\2\24\25\7c\2\2\25\26\7w\2\2\26\27\7u\2\2\27\30\7g\2\2\30\6\3\2\2\2"+
-		"\31\32\t\2\2\2\32\b\3\2\2\2\33\35\t\3\2\2\34\33\3\2\2\2\35\36\3\2\2\2"+
-		"\36\34\3\2\2\2\36\37\3\2\2\2\37\n\3\2\2\2 !\7j\2\2!\"\7q\2\2\"*\7t\2\2"+
-		"#$\7u\2\2$%\7k\2\2%*\7p\2\2&\'\7x\2\2\'(\7g\2\2(*\7t\2\2) \3\2\2\2)#\3"+
-		"\2\2\2)&\3\2\2\2*\f\3\2\2\2\5\2\36)\2";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\b\60\b\1\4\2\t\2"+
+		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3"+
+		"\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\6\6\6\"\n\6\r\6\16\6#\3\7\3\7"+
+		"\3\7\3\7\3\7\3\7\3\7\3\7\3\7\5\7/\n\7\2\2\b\3\3\5\4\7\5\t\6\13\7\r\b\3"+
+		"\2\4\4\2DDUU\3\2\62;\2\62\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2"+
+		"\2\2\2\13\3\2\2\2\2\r\3\2\2\2\3\17\3\2\2\2\5\26\3\2\2\2\7\30\3\2\2\2\t"+
+		"\36\3\2\2\2\13!\3\2\2\2\r.\3\2\2\2\17\20\7u\2\2\20\21\7r\2\2\21\22\7c"+
+		"\2\2\22\23\7y\2\2\23\24\7p\2\2\24\25\7\"\2\2\25\4\3\2\2\2\26\27\7\"\2"+
+		"\2\27\6\3\2\2\2\30\31\7r\2\2\31\32\7c\2\2\32\33\7w\2\2\33\34\7u\2\2\34"+
+		"\35\7g\2\2\35\b\3\2\2\2\36\37\t\2\2\2\37\n\3\2\2\2 \"\t\3\2\2! \3\2\2"+
+		"\2\"#\3\2\2\2#!\3\2\2\2#$\3\2\2\2$\f\3\2\2\2%&\7j\2\2&\'\7q\2\2\'/\7t"+
+		"\2\2()\7u\2\2)*\7k\2\2*/\7p\2\2+,\7x\2\2,-\7g\2\2-/\7t\2\2.%\3\2\2\2."+
+		"(\3\2\2\2.+\3\2\2\2/\16\3\2\2\2\5\2#.\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

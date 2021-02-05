@@ -1,4 +1,4 @@
-// Generated from satellite.g4 by ANTLR 4.9.1
+// Generated from AntlrSat.g4 by ANTLR 4.9.1
 package generated;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -6,35 +6,35 @@ import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link satelliteListener},
+ * This class provides an empty implementation of {@link AntlrSatListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class satelliteBaseListener implements satelliteListener {
+public class AntlrSatBaseListener implements AntlrSatListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSpawn(satelliteParser.SpawnContext ctx) { }
+	@Override public void enterSpawn(AntlrSatParser.SpawnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSpawn(satelliteParser.SpawnContext ctx) { }
+	@Override public void exitSpawn(AntlrSatParser.SpawnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPause(satelliteParser.PauseContext ctx) { }
+	@Override public void enterPause(AntlrSatParser.PauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPause(satelliteParser.PauseContext ctx) { }
+	@Override public void exitPause(AntlrSatParser.PauseContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
