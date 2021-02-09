@@ -1,5 +1,7 @@
 package command;
 
+import simulation.Simulation;
+
 public interface Command {
-    void execute(String ...args);
+    void execute(Simulation sim);
 }

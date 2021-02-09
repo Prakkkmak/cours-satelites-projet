@@ -3,7 +3,6 @@ package simulation;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
-
 import graphicLayer.GBounded;
 import graphicLayer.GRect;
 import graphicLayer.GSpace;
@@ -20,8 +19,9 @@ import simulation.vue.GrSatelitte;
 public class Simulation {
 
 	GSpace world = new GSpace("Satellite & Balises", new Dimension(800, 600));
-	private GRect sea;
-	private GRect sky;
+	private final GRect sea;
+	private final GRect sky;
+	private boolean pause = false;
 	public Simulation(){
 		sky = new GRect();
 		sky.setColor(Color.WHITE);
@@ -32,16 +32,23 @@ public class Simulation {
 		sea.setPosition(new Point(0, 300));
 		this.world.addElement(sky);
 		this.world.addElement(sea);
+		this.world.open();
+		Thread t = new Thread(this::mainLoop);
+		t.start();
 	}
 	public void mainLoop() {
 		while (true) {
-			Manager.getInstance().tick();
+			if(!pause) Manager.getInstance().tick();
 			try {
 				Thread.sleep(1);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public void pause(){
+		pause = !pause;
 	}
 	
 	public void addBalise(GBounded sea, int memorySize, Point startPos, Movement depl) {
@@ -83,8 +90,6 @@ public class Simulation {
 		this.addBalise(sea, 200, new Point(0,160), new HorizontalMovement(0,800));
 		this.addBalise(sea, 500, new Point(200,100), new VerticalMovement(130, 270));
 		this.addBalise(sea, 150, new Point(300,100), new HorizontalMovement(200, 600));
-		this.world.open();
-		this.mainLoop();
 	}
 
 	public static void main(String[] args) {

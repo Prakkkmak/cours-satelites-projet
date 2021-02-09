@@ -8,15 +8,35 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface AntlrSatListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link AntlrSatParser#spawn}.
+	 * Enter a parse tree produced by {@link AntlrSatParser#script}.
 	 * @param ctx the parse tree
 	 */
-	void enterSpawn(AntlrSatParser.SpawnContext ctx);
+	void enterScript(AntlrSatParser.ScriptContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AntlrSatParser#spawn}.
+	 * Exit a parse tree produced by {@link AntlrSatParser#script}.
 	 * @param ctx the parse tree
 	 */
-	void exitSpawn(AntlrSatParser.SpawnContext ctx);
+	void exitScript(AntlrSatParser.ScriptContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AntlrSatParser#command}.
+	 * @param ctx the parse tree
+	 */
+	void enterCommand(AntlrSatParser.CommandContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AntlrSatParser#command}.
+	 * @param ctx the parse tree
+	 */
+	void exitCommand(AntlrSatParser.CommandContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AntlrSatParser#create}.
+	 * @param ctx the parse tree
+	 */
+	void enterCreate(AntlrSatParser.CreateContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AntlrSatParser#create}.
+	 * @param ctx the parse tree
+	 */
+	void exitCreate(AntlrSatParser.CreateContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AntlrSatParser#pause}.
 	 * @param ctx the parse tree

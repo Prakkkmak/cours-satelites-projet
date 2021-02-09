@@ -16,13 +16,37 @@ public class AntlrSatBaseListener implements AntlrSatListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSpawn(AntlrSatParser.SpawnContext ctx) { }
+	@Override public void enterScript(AntlrSatParser.ScriptContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSpawn(AntlrSatParser.SpawnContext ctx) { }
+	@Override public void exitScript(AntlrSatParser.ScriptContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCommand(AntlrSatParser.CommandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCommand(AntlrSatParser.CommandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCreate(AntlrSatParser.CreateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCreate(AntlrSatParser.CreateContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
