@@ -1,8 +1,9 @@
 grammar AntlrSat;
 
 script : command* ;
-command : ( create | pause | 'stop') '!' ;
-create : 'create ' OBJ ' ' NB ' ' NB ' ' NB ; // create S x y speed
+command : ( create | pause | 'stop');
+create : 'create ' OBJ ' ' pos ' ' NB; // create S x y speed
+pos : NB ' ' NB ;
 pause : 'pause' ; // Pause the sim
 
 OBJ : ('S'|'B') ;
