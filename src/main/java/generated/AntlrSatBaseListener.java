@@ -28,13 +28,61 @@ public class AntlrSatBaseListener implements AntlrSatListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCommand(AntlrSatParser.CommandContext ctx) { }
+	@Override public void enterCmdCreate(AntlrSatParser.CmdCreateContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCommand(AntlrSatParser.CommandContext ctx) { }
+	@Override public void exitCmdCreate(AntlrSatParser.CmdCreateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCmdPause(AntlrSatParser.CmdPauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCmdPause(AntlrSatParser.CmdPauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCmdAssign(AntlrSatParser.CmdAssignContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCmdAssign(AntlrSatParser.CmdAssignContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCmdRemove(AntlrSatParser.CmdRemoveContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCmdRemove(AntlrSatParser.CmdRemoveContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAssign(AntlrSatParser.AssignContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAssign(AntlrSatParser.AssignContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -52,6 +100,18 @@ public class AntlrSatBaseListener implements AntlrSatListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterRemove(AntlrSatParser.RemoveContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRemove(AntlrSatParser.RemoveContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterPause(AntlrSatParser.PauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -59,6 +119,18 @@ public class AntlrSatBaseListener implements AntlrSatListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPause(AntlrSatParser.PauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPos(AntlrSatParser.PosContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPos(AntlrSatParser.PosContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

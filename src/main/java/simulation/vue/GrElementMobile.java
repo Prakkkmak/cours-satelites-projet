@@ -18,7 +18,7 @@ public class GrElementMobile extends GRect implements PositionChangeListener, Sy
 	MobileElement model;
 	Boolean duringSynchro = false;
 
-	Object getModel() { return this.model; }
+	public MobileElement getModel() { return this.model; }
 	
 	public void setModel(MobileElement model) {
 		this.model = model;

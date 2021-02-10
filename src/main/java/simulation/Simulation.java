@@ -3,17 +3,23 @@ package simulation;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
+import java.util.HashMap;
+import java.util.Map;
+
 import graphicLayer.GBounded;
 import graphicLayer.GRect;
 import graphicLayer.GSpace;
 import model.element.Beacon;
+import model.element.MobileElement;
 import model.movement.beacon.HorizontalMovement;
 import model.movement.beacon.VerticalMovement;
 import model.movement.satellite.BaseSatelliteMovement;
 import model.movement.Movement;
 import model.Manager;
 import model.element.Satelitte;
+import model.movement.satellite.SatelliteMovement;
 import simulation.vue.GrBalise;
+import simulation.vue.GrElementMobile;
 import simulation.vue.GrSatelitte;
 
 public class Simulation {
@@ -22,7 +28,9 @@ public class Simulation {
 	private final GRect sea;
 	private final GRect sky;
 	private boolean pause = false;
+	private Map<String, GrElementMobile> grElements;
 	public Simulation(){
+		grElements = new HashMap<>();
 		sky = new GRect();
 		sky.setColor(Color.WHITE);
 		sky.setDimension(new Dimension(800, 300));
@@ -51,7 +59,7 @@ public class Simulation {
 		pause = !pause;
 	}
 	
-	public void addBalise(GBounded sea, int memorySize, Point startPos, Movement depl) {
+	public GrBalise addBalise(GBounded sea, int memorySize, Point startPos, Movement depl) {
 		Beacon bal = new Beacon(memorySize);
 		bal.setPosition(startPos);
 		bal.setStartDepth(startPos.y);
@@ -60,12 +68,19 @@ public class Simulation {
 		GrBalise grbal = new GrBalise();
 		grbal.setModel(bal);
 		sea.addElement(grbal);
+		return grbal;
 	}
-	public void addBalise(int memorySize, Point startPos, Movement depl) {
-		addBalise(sea, memorySize, startPos, depl);
+	public GrBalise addBalise(int memorySize, Point startPos, Movement depl) {
+		return addBalise(sea, memorySize, startPos, depl);
 	}
 
-	public void addSatelitte(GBounded sky, int memorySize, Point startPos, int speed) {
+	public GrBalise addBalise(String id, int memorySize, Point startPos, Movement depl) {
+		GrBalise grbal = addBalise(memorySize, startPos, depl);
+		grElements.put(id, grbal);
+		return grbal;
+	}
+
+	public GrSatelitte addSatelitte(GBounded sky, int memorySize, Point startPos, int speed) {
 		Satelitte sat = new Satelitte(memorySize);
 		sat.setPosition(startPos);
 		sat.setMovement(new BaseSatelliteMovement(-10,1000, speed));
@@ -73,12 +88,23 @@ public class Simulation {
 		GrSatelitte grSat = new GrSatelitte();
 		grSat.setModel(sat);
 		sky.addElement(grSat);
+		return grSat;
 	}
 
-	public void addSatelitte(int memorySize, Point startPos, int speed) {
-		addSatelitte(sky, memorySize, startPos, speed);
+	public GrSatelitte addSatelitte(int memorySize, Point startPos, int speed) {
+		return addSatelitte(sky, memorySize, startPos, speed);
 	}
-	
+
+	public GrSatelitte addSatelitte(String id, int memorySize, Point startPos, int speed) {
+		GrSatelitte grsat = addSatelitte(memorySize, startPos, speed);
+		grElements.put(id, grsat);
+		return grsat;
+	}
+
+	public void removeElement(String id){
+		GrElementMobile grElementMobile = grElements.remove(id);
+		Manager.getInstance().removeElement(grElementMobile.getModel());
+	}
 	public void launch( ) {
 		this.addSatelitte(sky, 10000, new Point(10,50), 2);
 		this.addSatelitte(sky, 10000, new Point(100,10), 1);

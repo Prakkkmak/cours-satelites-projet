@@ -1,0 +1,4 @@
+create S 5 5 5
+create S 1 1 1
+create B 10 10 10
+pause

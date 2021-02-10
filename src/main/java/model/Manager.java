@@ -24,7 +24,7 @@ public class Manager {
 	public void addElement(MobileElement element){
 		elements.add(element);
 	}
-
+	public void removeElement(MobileElement element){elements.remove(element);}
 	//Utilisable pour les tests
 	public int size(){
 		return elements.size();
