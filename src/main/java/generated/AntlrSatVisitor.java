@@ -17,33 +17,11 @@ public interface AntlrSatVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitScript(AntlrSatParser.ScriptContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code cmdCreate}
-	 * labeled alternative in {@link AntlrSatParser#command}.
+	 * Visit a parse tree produced by {@link AntlrSatParser#command}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCmdCreate(AntlrSatParser.CmdCreateContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code cmdPause}
-	 * labeled alternative in {@link AntlrSatParser#command}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCmdPause(AntlrSatParser.CmdPauseContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code cmdAssign}
-	 * labeled alternative in {@link AntlrSatParser#command}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCmdAssign(AntlrSatParser.CmdAssignContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code cmdRemove}
-	 * labeled alternative in {@link AntlrSatParser#command}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCmdRemove(AntlrSatParser.CmdRemoveContext ctx);
+	T visitCommand(AntlrSatParser.CommandContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AntlrSatParser#assign}.
 	 * @param ctx the parse tree
@@ -63,11 +41,29 @@ public interface AntlrSatVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRemove(AntlrSatParser.RemoveContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link AntlrSatParser#speed}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSpeed(AntlrSatParser.SpeedContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AntlrSatParser#movement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMovement(AntlrSatParser.MovementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link AntlrSatParser#pause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitPause(AntlrSatParser.PauseContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AntlrSatParser#color}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitColor(AntlrSatParser.ColorContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AntlrSatParser#pos}.
 	 * @param ctx the parse tree

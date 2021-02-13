@@ -17,26 +17,30 @@ public class AntlrSatParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, OBJ=6, NB=7, DEP=8, WS=9, VAR=10;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, OBJ=9, 
+		NB=10, DEP=11, COLOR=12, WS=13, VAR=14;
 	public static final int
 		RULE_script = 0, RULE_command = 1, RULE_assign = 2, RULE_create = 3, RULE_remove = 4, 
-		RULE_pause = 5, RULE_pos = 6;
+		RULE_speed = 5, RULE_movement = 6, RULE_pause = 7, RULE_color = 8, RULE_pos = 9;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"script", "command", "assign", "create", "remove", "pause", "pos"
+			"script", "command", "assign", "create", "remove", "speed", "movement", 
+			"pause", "color", "pos"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "' = '", "'create '", "' '", "'remove '", "'pause'"
+			null, "' = '", "'create '", "' '", "'remove '", "'speed '", "'movement '", 
+			"'pause'", "'color '"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, "OBJ", "NB", "DEP", "WS", "VAR"
+			null, null, null, null, null, null, null, null, null, "OBJ", "NB", "DEP", 
+			"COLOR", "WS", "VAR"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -123,17 +127,17 @@ public class AntlrSatParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(17);
+			setState(23);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << T__3) | (1L << T__4) | (1L << VAR))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << T__3) | (1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__7) | (1L << VAR))) != 0)) {
 				{
 				{
-				setState(14);
+				setState(20);
 				command();
 				}
 				}
-				setState(19);
+				setState(25);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -151,89 +155,42 @@ public class AntlrSatParser extends Parser {
 	}
 
 	public static class CommandContext extends ParserRuleContext {
+		public CreateContext create() {
+			return getRuleContext(CreateContext.class,0);
+		}
+		public PauseContext pause() {
+			return getRuleContext(PauseContext.class,0);
+		}
+		public AssignContext assign() {
+			return getRuleContext(AssignContext.class,0);
+		}
+		public RemoveContext remove() {
+			return getRuleContext(RemoveContext.class,0);
+		}
+		public SpeedContext speed() {
+			return getRuleContext(SpeedContext.class,0);
+		}
+		public MovementContext movement() {
+			return getRuleContext(MovementContext.class,0);
+		}
+		public ColorContext color() {
+			return getRuleContext(ColorContext.class,0);
+		}
 		public CommandContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_command; }
-	 
-		public CommandContext() { }
-		public void copyFrom(CommandContext ctx) {
-			super.copyFrom(ctx);
-		}
-	}
-	public static class CmdAssignContext extends CommandContext {
-		public AssignContext assign() {
-			return getRuleContext(AssignContext.class,0);
-		}
-		public CmdAssignContext(CommandContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).enterCmdAssign(this);
+			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).enterCommand(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).exitCmdAssign(this);
+			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).exitCommand(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AntlrSatVisitor ) return ((AntlrSatVisitor<? extends T>)visitor).visitCmdAssign(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class CmdCreateContext extends CommandContext {
-		public CreateContext create() {
-			return getRuleContext(CreateContext.class,0);
-		}
-		public CmdCreateContext(CommandContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).enterCmdCreate(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).exitCmdCreate(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AntlrSatVisitor ) return ((AntlrSatVisitor<? extends T>)visitor).visitCmdCreate(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class CmdRemoveContext extends CommandContext {
-		public RemoveContext remove() {
-			return getRuleContext(RemoveContext.class,0);
-		}
-		public CmdRemoveContext(CommandContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).enterCmdRemove(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).exitCmdRemove(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AntlrSatVisitor ) return ((AntlrSatVisitor<? extends T>)visitor).visitCmdRemove(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class CmdPauseContext extends CommandContext {
-		public PauseContext pause() {
-			return getRuleContext(PauseContext.class,0);
-		}
-		public CmdPauseContext(CommandContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).enterCmdPause(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).exitCmdPause(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AntlrSatVisitor ) return ((AntlrSatVisitor<? extends T>)visitor).visitCmdPause(this);
+			if ( visitor instanceof AntlrSatVisitor ) return ((AntlrSatVisitor<? extends T>)visitor).visitCommand(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -242,39 +199,56 @@ public class AntlrSatParser extends Parser {
 		CommandContext _localctx = new CommandContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_command);
 		try {
-			setState(24);
+			setState(33);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__1:
-				_localctx = new CmdCreateContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(20);
+				setState(26);
 				create();
 				}
 				break;
-			case T__4:
-				_localctx = new CmdPauseContext(_localctx);
+			case T__6:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(21);
+				setState(27);
 				pause();
 				}
 				break;
 			case VAR:
-				_localctx = new CmdAssignContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(22);
+				setState(28);
 				assign();
 				}
 				break;
 			case T__3:
-				_localctx = new CmdRemoveContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(23);
+				setState(29);
 				remove();
+				}
+				break;
+			case T__4:
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(30);
+				speed();
+				}
+				break;
+			case T__5:
+				enterOuterAlt(_localctx, 6);
+				{
+				setState(31);
+				movement();
+				}
+				break;
+			case T__7:
+				enterOuterAlt(_localctx, 7);
+				{
+				setState(32);
+				color();
 				}
 				break;
 			default:
@@ -322,11 +296,11 @@ public class AntlrSatParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(26);
+			setState(35);
 			match(VAR);
-			setState(27);
+			setState(36);
 			match(T__0);
-			setState(28);
+			setState(37);
 			create();
 			}
 		}
@@ -372,17 +346,17 @@ public class AntlrSatParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(30);
+			setState(39);
 			match(T__1);
-			setState(31);
+			setState(40);
 			match(OBJ);
-			setState(32);
+			setState(41);
 			match(T__2);
-			setState(33);
+			setState(42);
 			pos();
-			setState(34);
+			setState(43);
 			match(T__2);
-			setState(35);
+			setState(44);
 			match(NB);
 			}
 		}
@@ -424,10 +398,108 @@ public class AntlrSatParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(37);
+			setState(46);
 			match(T__3);
-			setState(38);
+			setState(47);
 			match(VAR);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class SpeedContext extends ParserRuleContext {
+		public TerminalNode VAR() { return getToken(AntlrSatParser.VAR, 0); }
+		public TerminalNode NB() { return getToken(AntlrSatParser.NB, 0); }
+		public SpeedContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_speed; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).enterSpeed(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).exitSpeed(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AntlrSatVisitor ) return ((AntlrSatVisitor<? extends T>)visitor).visitSpeed(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final SpeedContext speed() throws RecognitionException {
+		SpeedContext _localctx = new SpeedContext(_ctx, getState());
+		enterRule(_localctx, 10, RULE_speed);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(49);
+			match(T__4);
+			setState(50);
+			match(VAR);
+			setState(51);
+			match(T__2);
+			setState(52);
+			match(NB);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class MovementContext extends ParserRuleContext {
+		public TerminalNode VAR() { return getToken(AntlrSatParser.VAR, 0); }
+		public TerminalNode DEP() { return getToken(AntlrSatParser.DEP, 0); }
+		public MovementContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_movement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).enterMovement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).exitMovement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AntlrSatVisitor ) return ((AntlrSatVisitor<? extends T>)visitor).visitMovement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final MovementContext movement() throws RecognitionException {
+		MovementContext _localctx = new MovementContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_movement);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(54);
+			match(T__5);
+			setState(55);
+			match(VAR);
+			setState(56);
+			match(T__2);
+			setState(57);
+			match(DEP);
 			}
 		}
 		catch (RecognitionException re) {
@@ -463,12 +535,61 @@ public class AntlrSatParser extends Parser {
 
 	public final PauseContext pause() throws RecognitionException {
 		PauseContext _localctx = new PauseContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_pause);
+		enterRule(_localctx, 14, RULE_pause);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(40);
-			match(T__4);
+			setState(59);
+			match(T__6);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class ColorContext extends ParserRuleContext {
+		public TerminalNode VAR() { return getToken(AntlrSatParser.VAR, 0); }
+		public TerminalNode COLOR() { return getToken(AntlrSatParser.COLOR, 0); }
+		public ColorContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_color; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).enterColor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AntlrSatListener ) ((AntlrSatListener)listener).exitColor(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AntlrSatVisitor ) return ((AntlrSatVisitor<? extends T>)visitor).visitColor(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ColorContext color() throws RecognitionException {
+		ColorContext _localctx = new ColorContext(_ctx, getState());
+		enterRule(_localctx, 16, RULE_color);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(61);
+			match(T__7);
+			setState(62);
+			match(VAR);
+			setState(63);
+			match(T__2);
+			setState(64);
+			match(COLOR);
 			}
 		}
 		catch (RecognitionException re) {
@@ -508,15 +629,15 @@ public class AntlrSatParser extends Parser {
 
 	public final PosContext pos() throws RecognitionException {
 		PosContext _localctx = new PosContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_pos);
+		enterRule(_localctx, 18, RULE_pos);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(42);
+			setState(66);
 			match(NB);
-			setState(43);
+			setState(67);
 			match(T__2);
-			setState(44);
+			setState(68);
 			match(NB);
 			}
 		}
@@ -532,18 +653,24 @@ public class AntlrSatParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\f\61\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\7\2\22\n\2\f\2\16\2\25"+
-		"\13\2\3\3\3\3\3\3\3\3\5\3\33\n\3\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3"+
-		"\5\3\5\3\6\3\6\3\6\3\7\3\7\3\b\3\b\3\b\3\b\3\b\2\2\t\2\4\6\b\n\f\16\2"+
-		"\2\2-\2\23\3\2\2\2\4\32\3\2\2\2\6\34\3\2\2\2\b \3\2\2\2\n\'\3\2\2\2\f"+
-		"*\3\2\2\2\16,\3\2\2\2\20\22\5\4\3\2\21\20\3\2\2\2\22\25\3\2\2\2\23\21"+
-		"\3\2\2\2\23\24\3\2\2\2\24\3\3\2\2\2\25\23\3\2\2\2\26\33\5\b\5\2\27\33"+
-		"\5\f\7\2\30\33\5\6\4\2\31\33\5\n\6\2\32\26\3\2\2\2\32\27\3\2\2\2\32\30"+
-		"\3\2\2\2\32\31\3\2\2\2\33\5\3\2\2\2\34\35\7\f\2\2\35\36\7\3\2\2\36\37"+
-		"\5\b\5\2\37\7\3\2\2\2 !\7\4\2\2!\"\7\b\2\2\"#\7\5\2\2#$\5\16\b\2$%\7\5"+
-		"\2\2%&\7\t\2\2&\t\3\2\2\2\'(\7\6\2\2()\7\f\2\2)\13\3\2\2\2*+\7\7\2\2+"+
-		"\r\3\2\2\2,-\7\t\2\2-.\7\5\2\2./\7\t\2\2/\17\3\2\2\2\4\23\32";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20I\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\3"+
+		"\2\7\2\30\n\2\f\2\16\2\33\13\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5\3$\n\3\3"+
+		"\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\7\3\7\3\7\3\7"+
+		"\3\7\3\b\3\b\3\b\3\b\3\b\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\13\3\13\3\13\3"+
+		"\13\3\13\2\2\f\2\4\6\b\n\f\16\20\22\24\2\2\2E\2\31\3\2\2\2\4#\3\2\2\2"+
+		"\6%\3\2\2\2\b)\3\2\2\2\n\60\3\2\2\2\f\63\3\2\2\2\168\3\2\2\2\20=\3\2\2"+
+		"\2\22?\3\2\2\2\24D\3\2\2\2\26\30\5\4\3\2\27\26\3\2\2\2\30\33\3\2\2\2\31"+
+		"\27\3\2\2\2\31\32\3\2\2\2\32\3\3\2\2\2\33\31\3\2\2\2\34$\5\b\5\2\35$\5"+
+		"\20\t\2\36$\5\6\4\2\37$\5\n\6\2 $\5\f\7\2!$\5\16\b\2\"$\5\22\n\2#\34\3"+
+		"\2\2\2#\35\3\2\2\2#\36\3\2\2\2#\37\3\2\2\2# \3\2\2\2#!\3\2\2\2#\"\3\2"+
+		"\2\2$\5\3\2\2\2%&\7\20\2\2&\'\7\3\2\2\'(\5\b\5\2(\7\3\2\2\2)*\7\4\2\2"+
+		"*+\7\13\2\2+,\7\5\2\2,-\5\24\13\2-.\7\5\2\2./\7\f\2\2/\t\3\2\2\2\60\61"+
+		"\7\6\2\2\61\62\7\20\2\2\62\13\3\2\2\2\63\64\7\7\2\2\64\65\7\20\2\2\65"+
+		"\66\7\5\2\2\66\67\7\f\2\2\67\r\3\2\2\289\7\b\2\29:\7\20\2\2:;\7\5\2\2"+
+		";<\7\r\2\2<\17\3\2\2\2=>\7\t\2\2>\21\3\2\2\2?@\7\n\2\2@A\7\20\2\2AB\7"+
+		"\5\2\2BC\7\16\2\2C\23\3\2\2\2DE\7\f\2\2EF\7\5\2\2FG\7\f\2\2G\25\3\2\2"+
+		"\2\4\31#";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

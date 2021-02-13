@@ -105,6 +105,23 @@ public class Simulation {
 		GrElementMobile grElementMobile = grElements.remove(id);
 		Manager.getInstance().removeElement(grElementMobile.getModel());
 	}
+
+	public void changeSpeed(String id, int newValue){
+		GrElementMobile grElementMobile = grElements.get(id);
+		MobileElement mobileModel = grElementMobile.getModel();
+		mobileModel.getMovement().setSpeed(newValue);
+	}
+
+	public void changeMovement(String id, Movement mov){
+		GrElementMobile grElementMobile = grElements.get(id);
+		MobileElement mobileModel = grElementMobile.getModel();
+		mobileModel.setMovement(mov);
+	}
+
+	public void changeColor(String id, Color c){
+		GrElementMobile grElementMobile = grElements.get(id);
+		grElementMobile.setColor(c);
+	}
 	public void launch( ) {
 		this.addSatelitte(sky, 10000, new Point(10,50), 2);
 		this.addSatelitte(sky, 10000, new Point(100,10), 1);

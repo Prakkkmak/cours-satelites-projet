@@ -18,53 +18,15 @@ public interface AntlrSatListener extends ParseTreeListener {
 	 */
 	void exitScript(AntlrSatParser.ScriptContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code cmdCreate}
-	 * labeled alternative in {@link AntlrSatParser#command}.
+	 * Enter a parse tree produced by {@link AntlrSatParser#command}.
 	 * @param ctx the parse tree
 	 */
-	void enterCmdCreate(AntlrSatParser.CmdCreateContext ctx);
+	void enterCommand(AntlrSatParser.CommandContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code cmdCreate}
-	 * labeled alternative in {@link AntlrSatParser#command}.
+	 * Exit a parse tree produced by {@link AntlrSatParser#command}.
 	 * @param ctx the parse tree
 	 */
-	void exitCmdCreate(AntlrSatParser.CmdCreateContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code cmdPause}
-	 * labeled alternative in {@link AntlrSatParser#command}.
-	 * @param ctx the parse tree
-	 */
-	void enterCmdPause(AntlrSatParser.CmdPauseContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code cmdPause}
-	 * labeled alternative in {@link AntlrSatParser#command}.
-	 * @param ctx the parse tree
-	 */
-	void exitCmdPause(AntlrSatParser.CmdPauseContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code cmdAssign}
-	 * labeled alternative in {@link AntlrSatParser#command}.
-	 * @param ctx the parse tree
-	 */
-	void enterCmdAssign(AntlrSatParser.CmdAssignContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code cmdAssign}
-	 * labeled alternative in {@link AntlrSatParser#command}.
-	 * @param ctx the parse tree
-	 */
-	void exitCmdAssign(AntlrSatParser.CmdAssignContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code cmdRemove}
-	 * labeled alternative in {@link AntlrSatParser#command}.
-	 * @param ctx the parse tree
-	 */
-	void enterCmdRemove(AntlrSatParser.CmdRemoveContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code cmdRemove}
-	 * labeled alternative in {@link AntlrSatParser#command}.
-	 * @param ctx the parse tree
-	 */
-	void exitCmdRemove(AntlrSatParser.CmdRemoveContext ctx);
+	void exitCommand(AntlrSatParser.CommandContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AntlrSatParser#assign}.
 	 * @param ctx the parse tree
@@ -96,6 +58,26 @@ public interface AntlrSatListener extends ParseTreeListener {
 	 */
 	void exitRemove(AntlrSatParser.RemoveContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link AntlrSatParser#speed}.
+	 * @param ctx the parse tree
+	 */
+	void enterSpeed(AntlrSatParser.SpeedContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AntlrSatParser#speed}.
+	 * @param ctx the parse tree
+	 */
+	void exitSpeed(AntlrSatParser.SpeedContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AntlrSatParser#movement}.
+	 * @param ctx the parse tree
+	 */
+	void enterMovement(AntlrSatParser.MovementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AntlrSatParser#movement}.
+	 * @param ctx the parse tree
+	 */
+	void exitMovement(AntlrSatParser.MovementContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link AntlrSatParser#pause}.
 	 * @param ctx the parse tree
 	 */
@@ -105,6 +87,16 @@ public interface AntlrSatListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPause(AntlrSatParser.PauseContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AntlrSatParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void enterColor(AntlrSatParser.ColorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AntlrSatParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void exitColor(AntlrSatParser.ColorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AntlrSatParser#pos}.
 	 * @param ctx the parse tree
